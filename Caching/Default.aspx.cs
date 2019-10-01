@@ -31,7 +31,7 @@ namespace Caching
             }
             else
             {
-                ts += "<b>(Cache)</b>";
+                ts += "<b>(Cache)</b> ";
             }
             return ts;
         }

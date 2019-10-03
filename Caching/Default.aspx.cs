@@ -10,7 +10,7 @@ namespace Caching
 {
     public partial class Default : System.Web.UI.Page
     {
-        private string CACHE_KEY = "codebehind_ts";
+        private static readonly string CACHE_KEY = "codebehind_ts";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,7 +31,7 @@ namespace Caching
             }
             else
             {
-                ts += "<b>(Cache)</b> ";
+                ts += "<b>(Cached)</b> ";
             }
             return ts;
         }
@@ -41,8 +41,27 @@ namespace Caching
             string ts = DateTime.Now.ToLongTimeString();
             Cache.Insert(CACHE_KEY, ts, null,
                 Cache.NoAbsoluteExpiration, TimeSpan.FromSeconds(10),
-                CacheItemPriority.Normal, HandleRemoveNotification);
+                HandleUpdateNotification);
             return ts;
+        }
+
+        private void HandleUpdateNotification(string key, 
+            CacheItemUpdateReason reason, 
+            out object expensiveObject, 
+            out CacheDependency dependency, 
+            out DateTime absoluteExpiration, 
+            out TimeSpan slidingExpiration)
+        {
+            expensiveObject = dependency = null;
+            slidingExpiration = Cache.NoSlidingExpiration;
+            absoluteExpiration = Cache.NoAbsoluteExpiration;
+
+            if (reason ==  CacheItemUpdateReason.Expired)
+            {
+                expensiveObject = DateTime.Now.ToLongTimeString();
+                slidingExpiration = TimeSpan.FromSeconds(10);
+                System.Diagnostics.Debug.WriteLine("Item {0} updated", key);
+            }
         }
 
         private void HandleRemoveNotification(string key, object value, CacheItemRemovedReason reason)

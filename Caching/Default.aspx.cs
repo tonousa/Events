@@ -19,59 +19,65 @@ namespace Caching
 
         public string GetTime()
         {
-            string ts = (string)Cache[CACHE_KEY];
-            if (ts == null)
+            string ts;
+            STCacheObject<string> stObject = Cache[CACHE_KEY] as STCacheObject<string>;
+            if (stObject == null)
             {
                 //Cache[CACHE_KEY] = ts = DateTime.Now.ToLongTimeString();
                 //ts = DateTime.Now.ToLongTimeString();
                 //Cache.Insert(CACHE_KEY, ts, null,
                 //    Cache.NoAbsoluteExpiration, TimeSpan.FromSeconds(5),
                 //    CacheItemPriority.Normal, HandleRemoveNotification);
-                ts = UpdateCache();
+                ts = new STCacheObject<string>(CACHE_KEY, GenerateTimeStamp).Data;
             }
             else
             {
-                ts += "<b>(Cached)</b> ";
+                ts = stObject.Data + "<b> GetTime (Cached)</b> ";
             }
             return ts;
         }
 
-        private string UpdateCache()
+        private string GenerateTimeStamp()
         {
-            string ts = DateTime.Now.ToLongTimeString();
-            Cache.Insert(CACHE_KEY, ts, null,
-                Cache.NoAbsoluteExpiration, TimeSpan.FromSeconds(10),
-                HandleUpdateNotification);
-            return ts;
+            return DateTime.Now.ToLongTimeString();
         }
 
-        private void HandleUpdateNotification(string key, 
-            CacheItemUpdateReason reason, 
-            out object expensiveObject, 
-            out CacheDependency dependency, 
-            out DateTime absoluteExpiration, 
-            out TimeSpan slidingExpiration)
-        {
-            expensiveObject = dependency = null;
-            slidingExpiration = Cache.NoSlidingExpiration;
-            absoluteExpiration = Cache.NoAbsoluteExpiration;
+        //private string UpdateCache()
+        //{
+        //    string ts = DateTime.Now.ToLongTimeString();
+        //    Cache.Insert(CACHE_KEY, ts, null,
+        //        Cache.NoAbsoluteExpiration, TimeSpan.FromSeconds(10),
+        //        HandleUpdateNotification);
+        //    return ts;
+        //}
 
-            if (reason ==  CacheItemUpdateReason.Expired)
-            {
-                expensiveObject = DateTime.Now.ToLongTimeString();
-                slidingExpiration = TimeSpan.FromSeconds(10);
-                System.Diagnostics.Debug.WriteLine("Item {0} updated", key);
-            }
-        }
+        //private void HandleUpdateNotification(string key, 
+        //    CacheItemUpdateReason reason, 
+        //    out object expensiveObject, 
+        //    out CacheDependency dependency, 
+        //    out DateTime absoluteExpiration, 
+        //    out TimeSpan slidingExpiration)
+        //{
+        //    expensiveObject = dependency = null;
+        //    slidingExpiration = Cache.NoSlidingExpiration;
+        //    absoluteExpiration = Cache.NoAbsoluteExpiration;
 
-        private void HandleRemoveNotification(string key, object value, CacheItemRemovedReason reason)
-        {
-            if (reason == CacheItemRemovedReason.Expired)
-            {
-                UpdateCache();
-                System.Diagnostics.Debug.WriteLine("Cache item {0} ejected {1}",
-                key, reason);
-            }
-        }
+        //    if (reason ==  CacheItemUpdateReason.Expired)
+        //    {
+        //        expensiveObject = DateTime.Now.ToLongTimeString();
+        //        slidingExpiration = TimeSpan.FromSeconds(10);
+        //        System.Diagnostics.Debug.WriteLine("Item {0} updated", key);
+        //    }
+        //}
+
+        //private void HandleRemoveNotification(string key, object value, CacheItemRemovedReason reason)
+        //{
+        //    if (reason == CacheItemRemovedReason.Expired)
+        //    {
+        //        UpdateCache();
+        //        System.Diagnostics.Debug.WriteLine("Cache item {0} ejected {1}",
+        //        key, reason);
+        //    }
+        //}
     }
 }

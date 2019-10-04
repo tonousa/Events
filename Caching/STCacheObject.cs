@@ -24,7 +24,7 @@ namespace Caching
 
         public DateTime Expiry {
             get {
-                return DateTime.Now.AddSeconds(10);
+                return DateTime.Now.AddSeconds(1000);
             }
         }
 
@@ -36,7 +36,7 @@ namespace Caching
             renewThreshold = threshold;
             renewDurationMins = duration;
 
-            HttpContext.Current.Cache.Insert(key, dataObject, null,
+            HttpContext.Current.Cache.Insert(key, this, null,
                 Expiry, Cache.NoSlidingExpiration, HandleUpdateCallback);
         }
 
@@ -44,7 +44,17 @@ namespace Caching
             out object expensiveObject, out CacheDependency dependency, 
             out DateTime absoluteExpiration, out TimeSpan slidingExpiration)
         {
-            
+            bool renew = accessedCounter >= renewThreshold;
+            if (renew)
+            {
+                dataObject = updateCallback();
+                accessedCounter = 0;
+            }
+
+            expensiveObject = renew ? this : null;
+            dependency = null;
+            absoluteExpiration = renew ? Expiry : Cache.NoAbsoluteExpiration;
+            slidingExpiration = Cache.NoSlidingExpiration;
         }
     }
 }

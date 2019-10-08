@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CachedForm.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -82,6 +83,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CachedForm.aspx.cs">
+      <DependentUpon>CachedForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CachedForm.aspx.designer.cs">
+      <DependentUpon>CachedForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CitiesControl.ascx.cs">
       <DependentUpon>CitiesControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

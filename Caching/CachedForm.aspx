@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CachedForm.aspx.cs" Inherits="Caching.CachedForm" EnableViewStateMac="true" %>
 
-<%@ OutputCache Duration="10" VaryByParam="none" VaryByCustom="formdata" %>
+<%@ OutputCache Duration="10" CacheProfile="standard" %>
 
 <!DOCTYPE html>
 

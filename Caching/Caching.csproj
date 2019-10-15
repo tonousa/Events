@@ -81,6 +81,7 @@
     <Content Include="CitiesList.html" />
     <Content Include="CurrentTime.ascx" />
     <Content Include="Default.aspx" />
+    <Content Include="UnCachedForm.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +119,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestCountDependency.cs" />
     <Compile Include="STCacheObject.cs" />
+    <Compile Include="UnCachedForm.aspx.cs">
+      <DependentUpon>UnCachedForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnCachedForm.aspx.designer.cs">
+      <DependentUpon>UnCachedForm.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

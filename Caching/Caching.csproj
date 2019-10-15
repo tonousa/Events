@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CachedForm.aspx" />
+    <Content Include="CitiesList.aspx" />
     <Content Include="ControlOverride.aspx" />
     <Content Include="Global.asax" />
     <Content Include="OuterControl.ascx" />
@@ -101,6 +102,13 @@
     </Compile>
     <Compile Include="CitiesControl.ascx.designer.cs">
       <DependentUpon>CitiesControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CitiesList.aspx.cs">
+      <DependentUpon>CitiesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CitiesList.aspx.designer.cs">
+      <DependentUpon>CitiesList.aspx</DependentUpon>
     </Compile>
     <Compile Include="ControlOverride.aspx.cs">
       <DependentUpon>ControlOverride.aspx</DependentUpon>

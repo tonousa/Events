@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UnCachedForm.aspx.cs" Inherits="Caching.UnCachedForm" %>
 
 <%@ Register TagPrefix="CC" TagName="Time" Src="~/CurrentTime.ascx" %>
+<%@ Register TagPrefix="CX" Namespace="Caching" Assembly="Caching" %>
 
 <!DOCTYPE html>
 
@@ -14,6 +15,9 @@
 <body>
     <div class="panel">
         <CC:Time runat="server" ID="timeControl" />
+    </div>
+    <div class="panel">
+        <CX:TimeServerControl runat="server" />
     </div>
     <div class="panel">
         Requested at: <%: DateTime.Now.ToLongTimeString() %>

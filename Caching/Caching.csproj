@@ -143,6 +143,7 @@
       <DependentUpon>SharedControl.aspx</DependentUpon>
     </Compile>
     <Compile Include="STCacheObject.cs" />
+    <Compile Include="TimeServerControl.cs" />
     <Compile Include="UnCachedForm.aspx.cs">
       <DependentUpon>UnCachedForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

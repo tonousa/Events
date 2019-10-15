@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OuterControl.ascx.cs" Inherits="Caching.OuterControl" %>
 
-<%@ OutputCache Duration="10" VaryByParam="none" %>
+<%@ OutputCache Duration="10" VaryByParam="none" VaryByControl="ddl" %>
 
 <div class="panel">
     response generated at: <%: DateTime.Now.ToLongTimeString() %>

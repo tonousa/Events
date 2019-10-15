@@ -26,6 +26,11 @@ namespace Caching
 
         protected string GetTimeStamp()
         {
+            return GetDynamicTimeStamp(null);
+        }
+
+        protected static string GetDynamicTimeStamp(HttpContext context)
+        {
             return DateTime.Now.ToLongTimeString();
         }
     }

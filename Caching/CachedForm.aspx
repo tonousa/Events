@@ -35,6 +35,9 @@
         <div class="panel">
             Generated at: <%: GetTimeStamp() %>
         </div>
+        <div class="panel">
+            Requested at: <asp:Substitution MethodName="GetDynamicTimeStamp" runat="server" />
+        </div>
     </div>
     </form>
 </body>

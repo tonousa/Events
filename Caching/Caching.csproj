@@ -124,6 +124,7 @@
     <Compile Include="CurrentTime.ascx.designer.cs">
       <DependentUpon>CurrentTime.ascx</DependentUpon>
     </Compile>
+    <Compile Include="CustomOutputCache.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -10,6 +10,12 @@ namespace Caching
 {
     public class Global : System.Web.HttpApplication
     {
+        public override string GetOutputCacheProviderName(HttpContext context)
+        {
+            return Request.RequestType == "POST" ?
+                "AspNetInternalProvider" : "custom";
+        }
+
         public override string GetVaryByCustomString(HttpContext context,
             string custom)
         {

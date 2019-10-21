@@ -72,6 +72,7 @@
     <Content Include="Global.asax" />
     <Content Include="OuterControl.ascx" />
     <Content Include="packages.config" />
+    <Content Include="CurrentTimeHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -96,6 +97,7 @@
     <Compile Include="CachedForm.aspx.designer.cs">
       <DependentUpon>CachedForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CachingHandlerFactory.cs" />
     <Compile Include="CitiesControl.ascx.cs">
       <DependentUpon>CitiesControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,6 +125,9 @@
     </Compile>
     <Compile Include="CurrentTime.ascx.designer.cs">
       <DependentUpon>CurrentTime.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentTimeHandler.ashx.cs">
+      <DependentUpon>CurrentTimeHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="CustomOutputCache.cs" />
     <Compile Include="Default.aspx.cs">

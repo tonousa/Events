@@ -14,7 +14,7 @@ namespace Caching
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            context.Response.Write(string.Format("String generated at: {}",
+            context.Response.Write(string.Format("String generated at: {0}",
                 DateTime.Now.ToLongTimeString()));
         }
 

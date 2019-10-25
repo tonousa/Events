@@ -10,24 +10,24 @@
 namespace ErrorHandling {
     
     
-    public partial class SumControl {
+    public partial class Default {
         
         /// <summary>
-        /// resultPlaceholder control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder resultPlaceholder;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// result control.
+        /// sumControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl result;
+        protected global::ErrorHandling.SumControl sumControl;
     }
 }

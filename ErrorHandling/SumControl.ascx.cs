@@ -11,7 +11,13 @@ namespace ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack)
+            {
+                int first = int.Parse(Request.Form["first"]);
+                int second = int.Parse(Request.Form["second"]);
+                result.InnerText = (first + second).ToString();
+                resultPlaceholder.Visible = true;
+            }
         }
     }
 }

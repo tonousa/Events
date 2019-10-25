@@ -34,11 +34,11 @@ namespace Caching
                 OutputCache.Providers[OutputCache.DefaultProviderName];
             if (oc != null)
             {
-                oc.Add(pathTranslated, response, DateTime.Now.AddSeconds(60));
+                oc.Add(pathTranslated, response, DateTime.Now.AddSeconds(600));
             }
             else
             {
-                context.Cache.Add(pathTranslated, response, null, DateTime.Now.AddSeconds(60),
+                context.Cache.Add(pathTranslated, response, null, DateTime.Now.AddSeconds(600),
                     Cache.NoSlidingExpiration, CacheItemPriority.Low, null);
             }
         }

@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ComponentError.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DynamicFailure.aspx" />
     <Content Include="DefaultASPXError.html" />
@@ -88,6 +89,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComponentError.aspx.cs">
+      <DependentUpon>ComponentError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComponentError.aspx.designer.cs">
+      <DependentUpon>ComponentError.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

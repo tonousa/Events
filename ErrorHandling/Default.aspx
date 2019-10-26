@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ErrorHandling.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ErrorHandling.Default" ErrorPage="DefaultASPXError.html" %>
 <%@ Register TagPrefix="CC" TagName="Sum" Src="~/SumControl.ascx" %>
 
 <!DOCTYPE html>

@@ -13,11 +13,27 @@ namespace ErrorHandling
         {
             if (IsPostBack)
             {
-                int first = int.Parse(Request.Form["first"]);
-                int second = int.Parse(Request.Form["second"]);
+                int? first = GetIntValue("first");
+                int? second = int.Parse(Request.Form["second"]);
                 result.InnerText = (first + second).ToString();
                 resultPlaceholder.Visible = true;
             }
+        }
+
+        private int? GetIntValue(string name)
+        {
+            int value;
+            if (Request[name] == null)
+            {
+                Context.AddError(new ArgumentNullException(name));
+                return null;
+            }
+            else if (!int.TryParse(Request[name], out value))
+            {
+                Context.AddError(new ArgumentOutOfRangeException(name));
+                return null;
+            }
+            return value;
         }
     }
 }

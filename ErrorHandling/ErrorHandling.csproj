@@ -71,6 +71,7 @@
     <Content Include="DynamicFailure.aspx" />
     <Content Include="DefaultASPXError.html" />
     <Content Include="Global.asax" />
+    <Content Include="MultipleErrors.aspx" />
     <Content Include="NotFoundIIS.html" />
     <Content Include="NotFoundASP.html" />
     <Content Include="Failure.html" />
@@ -113,6 +114,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MultipleErrors.aspx.cs">
+      <DependentUpon>MultipleErrors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MultipleErrors.aspx.designer.cs">
+      <DependentUpon>MultipleErrors.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotFoundShared.aspx.cs">
       <DependentUpon>NotFoundShared.aspx</DependentUpon>

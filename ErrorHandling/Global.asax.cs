@@ -44,13 +44,24 @@ namespace ErrorHandling
             Failure failReason = CheckForRootCause();
             if (failReason != Failure.None)
             {
-                Response.Redirect(string.Format(
+                Response.ClearHeaders();
+                Response.ClearContent();
+                Response.StatusCode = 200;
+
+                Server.Execute(string.Format(
                     "/ComponentError.aspx?errorSource={0}&errorType={1}",
                     "The " + failReason.ToString().ToLower(),
                     Context.Error.GetType()));
+                Context.ClearError();
+
+                //Response.Redirect(string.Format(
+                //    "/ComponentError.aspx?errorSource={0}&errorType={1}",
+                //    "The " + failReason.ToString().ToLower(),
+                //    Context.Error.GetType()));
             }
-            Debug.WriteLine(string.Format("Failure {0}, Exception type {1}",
-                failReason, Context.Error.GetType()));
+            //Debug.WriteLine(string.Format("Failure {0}, Exception type {1}",
+            //    failReason, Context.Error.GetType()));
+            Debug.WriteLine("server execute!!!");
         }
 
         private Failure CheckForRootCause()

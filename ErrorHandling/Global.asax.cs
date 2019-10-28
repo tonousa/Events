@@ -71,6 +71,18 @@ namespace ErrorHandling
             return (Failure)values.GetValue(new Random().Next(values.Length));
         }
 
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            if (Context.AllErrors != null && Context.AllErrors.Length > 1)
+            {
+                Response.ClearHeaders();
+                Response.ClearContent();
+                Response.StatusCode = 200;
+                Server.Execute("/MultipleErrors.aspx");
+                Context.ClearError();
+            }
+        }
+
         protected void Session_End(object sender, EventArgs e)
         {
 

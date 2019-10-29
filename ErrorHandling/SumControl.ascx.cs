@@ -14,9 +14,18 @@ namespace ErrorHandling
             if (IsPostBack)
             {
                 int? first = GetIntValue("first");
-                int? second = int.Parse(Request.Form["second"]);
-                result.InnerText = (first + second).ToString();
-                resultPlaceholder.Visible = true;
+                int? second = GetIntValue("second");
+
+                if (first.HasValue && second.HasValue)
+                {
+                    result.InnerText = (first + second).ToString();
+                    resultPlaceholder.Visible = true;
+                }
+                else
+                {
+                    Context.AddError(new Exception("Cannot perform calculation"));
+                }
+                
             }
         }
 

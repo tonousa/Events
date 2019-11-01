@@ -112,6 +112,7 @@
     <Compile Include="DynamicFailure.aspx.designer.cs">
       <DependentUpon>DynamicFailure.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ErrorModule.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

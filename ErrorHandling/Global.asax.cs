@@ -44,15 +44,15 @@ namespace ErrorHandling
             Failure failReason = CheckForRootCause();
             if (failReason != Failure.None)
             {
-                Response.ClearHeaders();
-                Response.ClearContent();
-                Response.StatusCode = 200;
+                //Response.ClearHeaders();
+                //Response.ClearContent();
+                //Response.StatusCode = 200;
 
-                Server.Execute(string.Format(
-                    "/ComponentError.aspx?errorSource={0}&errorType={1}",
-                    "The " + failReason.ToString().ToLower(),
-                    Context.Error.GetType()));
-                Context.ClearError();
+                //Server.Execute(string.Format(
+                //    "/ComponentError.aspx?errorSource={0}&errorType={1}",
+                //    "The " + failReason.ToString().ToLower(),
+                //    Context.Error.GetType()));
+                //Context.ClearError();
 
                 //Response.Redirect(string.Format(
                 //    "/ComponentError.aspx?errorSource={0}&errorType={1}",
@@ -73,14 +73,14 @@ namespace ErrorHandling
 
         protected void Application_EndRequest(object sender, EventArgs e)
         {
-            if (Context.AllErrors != null && Context.AllErrors.Length > 1)
-            {
-                Response.ClearHeaders();
-                Response.ClearContent();
-                Response.StatusCode = 200;
-                Server.Execute("/MultipleErrors.aspx");
-                Context.ClearError();
-            }
+            //if (Context.AllErrors != null && Context.AllErrors.Length > 1)
+            //{
+            //    Response.ClearHeaders();
+            //    Response.ClearContent();
+            //    Response.StatusCode = 200;
+            //    Server.Execute("/MultipleErrors.aspx");
+            //    Context.ClearError();
+            //}
         }
 
         protected void Session_End(object sender, EventArgs e)

@@ -15,6 +15,11 @@ namespace PathsAndUrls
 
         private void ProcessRequest(HttpApplication app)
         {
+            if (app.Request.FilePath == "/Test.aspx")
+            {
+                app.Server.Transfer("/Content/RequestReporter.aspx");
+            }
+
             WriteMsg("URL requested {0}", app.Request.RawUrl);
         }
 

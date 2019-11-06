@@ -7,10 +7,9 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
+    <p>Original virtual path: <%: Request.FilePath %></p>
+    <p>Original physical path: <%: Request.PhysicalPath %></p>
+    <p>Current virtual path: <%: Request.CurrentExecutionFilePath %></p>
+    <p>Current physical path: <%: Request.MapPath(Request.CurrentExecutionFilePath) %></p>
 </body>
 </html>

@@ -70,6 +70,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Colors.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="Site.Mobile.Master" />
     <None Include="Web.Debug.config">
@@ -88,6 +90,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Colors.aspx.cs">
+      <DependentUpon>Colors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Colors.aspx.designer.cs">
+      <DependentUpon>Colors.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Content\RequestReporter.aspx.cs">
       <DependentUpon>RequestReporter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -103,6 +112,9 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ExtensionlessHandler.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="PathModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleModule.cs" />

@@ -7,10 +7,13 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
+    The colors are:
+        <ol>
+            <asp:Repeater ItemType="System.String" SelectMethod="GetColors" runat="server">
+                <ItemTemplate>
+                    <li><%# Item %></li>
+                </ItemTemplate>
+            </asp:Repeater>
+        </ol>
 </body>
 </html>

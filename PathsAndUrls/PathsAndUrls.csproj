@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Colors.aspx" />
+    <Content Include="Count.aspx" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="Site.Mobile.Master" />
@@ -82,7 +83,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Colors.html" />
+    <Content Include="Colors.html" />
     <Content Include="Content\RequestReporter.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -103,6 +104,13 @@
     </Compile>
     <Compile Include="Content\RequestReporter.aspx.designer.cs">
       <DependentUpon>RequestReporter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Count.aspx.cs">
+      <DependentUpon>Count.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Count.aspx.designer.cs">
+      <DependentUpon>Count.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -7,10 +7,13 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
+    The numbers are:
+        <ul>
+            <asp:Repeater ItemType="System.Int32" SelectMethod="GetNumbers" runat="server">
+                <ItemTemplate>
+                    <li><%# Item %></li>
+                </ItemTemplate>
+            </asp:Repeater>
+        </ul>
 </body>
 </html>

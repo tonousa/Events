@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.FriendlyUrls.ModelBinding;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,14 @@ namespace PathsAndUrls
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public IEnumerable<int> GetNumbers([FriendlyUrlSegments(0)] int? max)
+        {
+            for (int i = 0; i < (max ?? 5); i++)
+            {
+                yield return i;
+            }
         }
     }
 }

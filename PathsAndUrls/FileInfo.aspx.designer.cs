@@ -10,6 +10,6 @@
 namespace PathsAndUrls {
     
     
-    public partial class Count {
+    public partial class FileInfo {
     }
 }

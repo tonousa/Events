@@ -7,10 +7,11 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
+    <form id="form1" runat="server" action="/accounts" method="post">
+        <div>
+            Function: <input name="function" value="100" />
+        </div>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>

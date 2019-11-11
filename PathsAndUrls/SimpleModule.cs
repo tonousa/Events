@@ -15,9 +15,25 @@ namespace PathsAndUrls
 
         private void ProcessRequest(HttpApplication app)
         {
-            if (app.Request.FilePath == "/Test.aspx")
+            //if (app.Request.FilePath == "/Test.aspx")
+            //{
+            //    app.Server.Transfer("/Content/RequestReporter.aspx");
+            //}
+
+            if (app.Request.Path == "/accounts")
             {
-                app.Server.Transfer("/Content/RequestReporter.aspx");
+                int functionValue;
+                if (int.TryParse(app.Request.Form["function"], out functionValue))
+                {
+                    if (functionValue < 100)
+                    {
+                        app.Context.RewritePath("/Default.aspx");
+                    }
+                    else
+                    {
+                        app.Context.RewritePath("/Content/RequestReporter.aspx");
+                    }
+                }
             }
 
             WriteMsg("URL requested: {0} {1}", app.Request.RawUrl, app.Request.FilePath);

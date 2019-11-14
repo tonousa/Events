@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
     <div>
         <p>This is /Store/Cart.aspx</p>
+        <p>Route path: <%: GetUrlFromRoute() %></p>
     </div>
     </form>
 </body>

@@ -14,11 +14,20 @@ namespace Routing
             routes.MapPageRoute("cart1", "cart", "~/Store/Cart.aspx");
             routes.MapPageRoute("cart2", "apps/shopping/finish", "~/Store/Cart.aspx");
 
-            routes.MapPageRoute("dall", "{app}/default", "~/Default.aspx");
+            routes.MapPageRoute("d4", "store/default", "~/Store/Cart.aspx");
+            routes.MapPageRoute("dall", "{app}/default", "~/Default.aspx",
+                false, null,
+                new RouteValueDictionary { { "app", "accounts|billing|payments" } });
             //routes.MapPageRoute("d2", "accounts/default", "~/Default.aspx");
             //routes.MapPageRoute("d3", "payments/default", "~/Default.aspx");
-            routes.MapPageRoute("d4", "store/default", "~/Store/Cart.aspx");
 
+            RouteValueDictionary constraints = new RouteValueDictionary
+            {
+                {"first", "[0-9]*" }, {"second", "[0-9]*" }, {"operation", "plus|minus" }
+            };
+
+            routes.MapPageRoute("calc", "calc/{first}/{operation}/{second}",
+                "~/Calc.aspx", false, null, constraints);
         }
     }
 }

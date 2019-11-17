@@ -28,6 +28,13 @@ namespace Routing
 
             routes.MapPageRoute("calc", "calc/{first}/{operation}/{second}",
                 "~/Calc.aspx", false, null, constraints);
+
+            routes.MapPageRoute("calc2", "calc/{first}/{second}/{operation}",
+                "~/Calc.aspx", false,
+                new RouteValueDictionary { { "operation", "plus" }, { "second", 30 } },
+                constraints);
+
+            routes.MapPageRoute("calc3", "calc/{operation}/{*numbers}", "~/calc.aspx");
         }
     }
 }

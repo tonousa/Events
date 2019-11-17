@@ -14,10 +14,11 @@ namespace Routing
             int firstNumber = 0, secondNumber = 0;
             string firstString, secondString, operationString;
 
-            if (Page.RouteData.Values.Count > 0)
+            if (Page.RouteData.Values.ContainsKey("numbers"))
             {
-                firstString = RouteData.Values["first"].ToString();
-                secondString = RouteData.Values["second"].ToString();
+                string[] elems = RouteData.Values["numbers"].ToString().Split('/');
+                firstString = elems[0];
+                secondString = elems[1];
                 operationString = RouteData.Values["operation"].ToString();
             }
             else

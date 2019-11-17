@@ -35,6 +35,10 @@ namespace Routing
                 constraints);
 
             routes.MapPageRoute("calc3", "calc/{operation}/{*numbers}", "~/calc.aspx");
+
+            routes.MapPageRoute("loop", "{count}", "~/loop.aspx", false,
+                new RouteValueDictionary { { "count", "3" } },
+                new RouteValueDictionary { { "count", "[0-9]*" } });
         }
     }
 }

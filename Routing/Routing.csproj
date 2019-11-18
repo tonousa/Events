@@ -69,6 +69,7 @@
     <Content Include="Calc.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Loop.aspx" />
+    <Content Include="Out.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -107,6 +108,13 @@
     </Compile>
     <Compile Include="Loop.aspx.designer.cs">
       <DependentUpon>Loop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Out.aspx.cs">
+      <DependentUpon>Out.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Out.aspx.designer.cs">
+      <DependentUpon>Out.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Store\Cart.aspx.cs">

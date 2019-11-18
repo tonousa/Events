@@ -39,6 +39,8 @@ namespace Routing
             routes.MapPageRoute("loop", "{count}", "~/loop.aspx", false,
                 new RouteValueDictionary { { "count", "3" } },
                 new RouteValueDictionary { { "count", "[0-9]*" } });
+
+            routes.MapPageRoute("out", "out", "~/Out.aspx");
         }
     }
 }

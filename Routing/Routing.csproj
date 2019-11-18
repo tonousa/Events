@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="RouteTest.aspx" />
     <Content Include="Store\Cart.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -117,6 +118,15 @@
       <DependentUpon>Out.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteTest.aspx.cs">
+      <DependentUpon>RouteTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RouteTest.aspx.designer.cs">
+      <DependentUpon>RouteTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RouteTestModule.cs" />
+    <Compile Include="RouteTestTypes.cs" />
     <Compile Include="Store\Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

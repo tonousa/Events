@@ -15,7 +15,8 @@ namespace Routing
             routes.MapPageRoute("postTest", "methodtest", "~/PostTest.aspx",
                 false, null,
                 new RouteValueDictionary {
-                    {"httpMethod", new HttpMethodConstraint("POST") }
+                    { "httpMethod", new HttpMethodConstraint("POST") },
+                    { "city", new FormDataConstraint("London") }
                 });
 
             routes.MapPageRoute("getTest", "methodtest", "~/GetTest.aspx",

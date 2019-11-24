@@ -19,6 +19,13 @@ namespace Routing
                     {"httpmethod", new HttpMethodConstraint("GET") }
                 });
 
+            //routes.MapPageRoute("store", "store/{target}", "~/Default.aspx");
+
+            Route wr = new Route("store/{target}",
+                new PageRouteHandler("~/Default.aspx"));
+            wr.RouteExistingFiles = false;
+            routes.Add("store", wr);
+
             routes.MapPageRoute("default", "", "~/Default.aspx");
 
             routes.MapPageRoute("postTest", "methodtest", "~/PostTest.aspx",

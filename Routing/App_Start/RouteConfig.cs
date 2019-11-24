@@ -10,21 +10,24 @@ namespace Routing
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.RouteExistingFiles = true;
+            //routes.RouteExistingFiles = true;
 
-            routes.MapPageRoute("oldToNew", "Loop.aspx", "~/Default.aspx",
-                false, null,
-                new RouteValueDictionary
-                {
-                    {"httpmethod", new HttpMethodConstraint("GET") }
-                });
+            //routes.Add("stop", new Route("methodtest", new StopRoutingHandler()));
+            //routes.Ignore("methodtest");
+
+            //routes.MapPageRoute("oldToNew", "Loop.aspx", "~/Default.aspx",
+            //    false, null,
+            //    new RouteValueDictionary
+            //    {
+            //        {"httpmethod", new HttpMethodConstraint("GET") }
+            //    });
 
             //routes.MapPageRoute("store", "store/{target}", "~/Default.aspx");
 
-            Route wr = new Route("store/{target}",
-                new PageRouteHandler("~/Default.aspx"));
-            wr.RouteExistingFiles = false;
-            routes.Add("store", wr);
+            //Route wr = new Route("store/{target}",
+            //    new PageRouteHandler("~/Default.aspx"));
+            //wr.RouteExistingFiles = false;
+            //routes.Add("store", wr);
 
             routes.MapPageRoute("default", "", "~/Default.aspx");
 
@@ -34,6 +37,15 @@ namespace Routing
                     { "httpMethod", new HttpMethodConstraint("POST") },
                     { "city", new FormDataConstraint("London") }
                 });
+
+            //routes.Add("stop", new Route("methodtest", null,
+            //    new RouteValueDictionary
+            //    {
+            //        {"httpMethod", new HttpMethodConstraint("POST") }
+            //    }, new StopRoutingHandler()));
+
+            routes.Ignore("methodtest",
+                new { httpMethod = new HttpMethodConstraint("POST") });
 
             routes.MapPageRoute("getTest", "methodtest", "~/GetTest.aspx",
                 false, null, null);

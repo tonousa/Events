@@ -10,6 +10,15 @@ namespace Routing
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.RouteExistingFiles = true;
+
+            routes.MapPageRoute("oldToNew", "Loop.aspx", "~/Default.aspx",
+                false, null,
+                new RouteValueDictionary
+                {
+                    {"httpmethod", new HttpMethodConstraint("GET") }
+                });
+
             routes.MapPageRoute("default", "", "~/Default.aspx");
 
             routes.MapPageRoute("postTest", "methodtest", "~/PostTest.aspx",

@@ -10,7 +10,9 @@ namespace Routing
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            //routes.RouteExistingFiles = true;
+            routes.RouteExistingFiles = true;
+
+            routes.StopASPXRequests();
 
             //routes.Add("stop", new Route("methodtest", new StopRoutingHandler()));
             //routes.Ignore("methodtest");

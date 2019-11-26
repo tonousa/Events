@@ -146,6 +146,7 @@
     </Compile>
     <Compile Include="RouteTestModule.cs" />
     <Compile Include="RouteTestTypes.cs" />
+    <Compile Include="StopASPXRouteHandler.cs" />
     <Compile Include="Store\Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

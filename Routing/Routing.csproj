@@ -72,6 +72,7 @@
     <Content Include="Loop.aspx" />
     <Content Include="Out.aspx" />
     <Content Include="packages.config" />
+    <Content Include="GenHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -96,6 +97,7 @@
     <Compile Include="Calc.aspx.designer.cs">
       <DependentUpon>Calc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomHandler.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -104,6 +106,9 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormDataConstraint.cs" />
+    <Compile Include="GenHandler.ashx.cs">
+      <DependentUpon>GenHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="GetTest.aspx.cs">
       <DependentUpon>GetTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

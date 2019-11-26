@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BrowserRoute.cs" />
     <Compile Include="Calc.aspx.cs">
       <DependentUpon>Calc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

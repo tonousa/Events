@@ -31,8 +31,16 @@ namespace Routing
 
             routes.MapPageRoute("default", "", "~/Default.aspx");
 
+            routes.Add("browser", new BrowserRoute("browser",
+                new Dictionary<Browser, string>
+                {
+                    { Browser.IE10, "~/Calc.aspx"},
+                    { Browser.CHROME, "~/Loop.aspx" },
+                    { Browser.OTHER, "~/Default.aspx" }
+                }));
+
             routes.Add("apress", new Route("apress", null, null,
-                new RouteValueDictionary { { "targe", "http://apress.com" } },
+                new RouteValueDictionary { { "target", "http://apress.com" } },
                 new RedirectionRouteHandler()));
 
             routes.MapPageRoute("postTest", "methodtest", "~/PostTest.aspx",

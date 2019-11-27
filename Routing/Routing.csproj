@@ -105,6 +105,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FlexibleRouteHandler.cs" />
     <Compile Include="FormDataConstraint.cs" />
     <Compile Include="GenHandler.ashx.cs">
       <DependentUpon>GenHandler.ashx</DependentUpon>

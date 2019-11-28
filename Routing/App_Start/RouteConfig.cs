@@ -33,6 +33,20 @@ namespace Routing
 
             routes.MapPageRoute("default", "", "~/Default.aspx");
 
+
+            routes.Add("flex1", new Route("generichandler",
+                new FlexibleRouteHandler { HandlerType = "Routing.GenHandler" }));
+
+            routes.Add("flex2", new Route("customhandlerfactory",
+                new FlexibleRouteHandler
+                {
+                    HandlerType = "Routing.CustomHandlerFactory"
+                }));
+
+            routes.Add("flex3", new Route("customhandler",
+                new FlexibleRouteHandler { HandlerType = "Routing.CustomHandler" }));
+
+
             routes.Add("browser", new BrowserRoute("browser",
                 new Dictionary<Browser, string>
                 {

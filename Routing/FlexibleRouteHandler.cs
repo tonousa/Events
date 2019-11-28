@@ -20,9 +20,18 @@ namespace Routing
                 if (target is IHttpHandlerFactory 
                     && requestContext.HttpContext is HttpContextWrapper)
                 {
-                    handler = (target as IHttpHandlerFactory)
+                    handler = (target as IHttpHandlerFactory).GetHandler(
+                        HttpContext.Current,
+                        requestContext.HttpContext.Request.RequestType,
+                        requestContext.HttpContext.Request.RawUrl,
+                        requestContext.HttpContext.Request.PhysicalApplicationPath);
+                }
+                else if (target is IHttpHandler)
+                {
+                    handler = target as IHttpHandler;
                 }
             }
+            return handler;
         }
     }
 }

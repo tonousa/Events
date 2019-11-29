@@ -12,7 +12,7 @@ namespace Routing
         {
             routes.RouteExistingFiles = true;
 
-            routes.StopASPXRequests();
+            //routes.StopASPXRequests();
 
             //routes.Add("stop", new Route("methodtest", new StopRoutingHandler()));
             //routes.Ignore("methodtest");
@@ -31,40 +31,45 @@ namespace Routing
             //wr.RouteExistingFiles = false;
             //routes.Add("store", wr);
 
-            routes.MapPageRoute("default", "", "~/Default.aspx");
+            routes.MapPageRoute("default", "", "~/Default.aspx", false, null,
+                new RouteValueDictionary { { "direction", new IncomingOnly() } });
+
+            routes.MapPageRoute("calc", "calc/{first}/{operation}/{second}",
+                "~/Calc.aspx", false, null, new RouteValueDictionary {
+                    { "first", "[0-9]*"}, { "second", "[0-9]*"},
+                    { "operation", "plus|minus"} });
+
+            //routes.Add("flex1", new Route("generichandler",
+            //    new FlexibleRouteHandler { HandlerType = "Routing.GenHandler" }));
+
+            //routes.Add("flex2", new Route("customhandlerfactory",
+            //    new FlexibleRouteHandler
+            //    {
+            //        HandlerType = "Routing.CustomHandlerFactory"
+            //    }));
+
+            //routes.Add("flex3", new Route("customhandler",
+            //    new FlexibleRouteHandler { HandlerType = "Routing.CustomHandler" }));
 
 
-            routes.Add("flex1", new Route("generichandler",
-                new FlexibleRouteHandler { HandlerType = "Routing.GenHandler" }));
+            //routes.Add("browser", new BrowserRoute("browser",
+            //    new Dictionary<Browser, string>
+            //    {
+            //        { Browser.IE10, "~/Calc.aspx"},
+            //        { Browser.CHROME, "~/Loop.aspx" },
+            //        { Browser.OTHER, "~/Default.aspx" }
+            //    }));
 
-            routes.Add("flex2", new Route("customhandlerfactory",
-                new FlexibleRouteHandler
-                {
-                    HandlerType = "Routing.CustomHandlerFactory"
-                }));
+            //routes.Add("apress", new Route("apress", null, null,
+            //    new RouteValueDictionary { { "target", "http://apress.com" } },
+            //    new RedirectionRouteHandler()));
 
-            routes.Add("flex3", new Route("customhandler",
-                new FlexibleRouteHandler { HandlerType = "Routing.CustomHandler" }));
-
-
-            routes.Add("browser", new BrowserRoute("browser",
-                new Dictionary<Browser, string>
-                {
-                    { Browser.IE10, "~/Calc.aspx"},
-                    { Browser.CHROME, "~/Loop.aspx" },
-                    { Browser.OTHER, "~/Default.aspx" }
-                }));
-
-            routes.Add("apress", new Route("apress", null, null,
-                new RouteValueDictionary { { "target", "http://apress.com" } },
-                new RedirectionRouteHandler()));
-
-            routes.MapPageRoute("postTest", "methodtest", "~/PostTest.aspx",
-                false, null,
-                new RouteValueDictionary {
-                    { "httpMethod", new HttpMethodConstraint("POST") },
-                    { "city", new FormDataConstraint("London") }
-                });
+            //routes.MapPageRoute("postTest", "methodtest", "~/PostTest.aspx",
+            //    false, null,
+            //    new RouteValueDictionary {
+            //        { "httpMethod", new HttpMethodConstraint("POST") },
+            //        { "city", new FormDataConstraint("London") }
+            //    });
 
             //routes.Add("stop", new Route("methodtest", null,
             //    new RouteValueDictionary
@@ -72,11 +77,11 @@ namespace Routing
             //        {"httpMethod", new HttpMethodConstraint("POST") }
             //    }, new StopRoutingHandler()));
 
-            routes.Ignore("methodtest",
-                new { httpMethod = new HttpMethodConstraint("POST") });
+            //routes.Ignore("methodtest",
+            //    new { httpMethod = new HttpMethodConstraint("POST") });
 
-            routes.MapPageRoute("getTest", "methodtest", "~/GetTest.aspx",
-                false, null, null);
+            //routes.MapPageRoute("getTest", "methodtest", "~/GetTest.aspx",
+            //    false, null, null);
 
             //routes.MapPageRoute("cart1", "cart", "~/Store/Cart.aspx");
             //routes.MapPageRoute("cart2", "apps/shopping/finish", "~/Store/Cart.aspx");
@@ -93,8 +98,6 @@ namespace Routing
             //    {"first", "[0-9]*" }, {"second", "[0-9]*" }, {"operation", "plus|minus" }
             //};
 
-            //routes.MapPageRoute("calc", "calc/{first}/{operation}/{second}",
-            //    "~/Calc.aspx", false, null, constraints);
 
             //routes.MapPageRoute("calc2", "calc/{first}/{second}/{operation}",
             //    "~/Calc.aspx", false,

@@ -5,6 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style>
+        div.details {margin-bottom: 20px;}
+        div {margin-top: 5px;}
+        label {display: inline-block; width: 90px; }
+        button {margin: 10px 10px 0 0 ;}
+    </style>
 </head>
 <body>
     <div class="details">The request is authenticated: <%: GetRequestStatus() %></div>

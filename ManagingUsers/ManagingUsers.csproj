@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
+    <Content Include="Admin\Open.aspx" />
     <Content Include="packages.config" />
     <Content Include="Admin\Web.config" />
     <None Include="Web.Debug.config">
@@ -90,6 +91,13 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Open.aspx.cs">
+      <DependentUpon>Open.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Open.aspx.designer.cs">
+      <DependentUpon>Open.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Restricted.aspx.cs">
       <DependentUpon>Restricted.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -98,6 +106,7 @@
       <DependentUpon>Restricted.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AuthModule.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

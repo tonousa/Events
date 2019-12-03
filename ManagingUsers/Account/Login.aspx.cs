@@ -19,13 +19,13 @@ namespace ManagingUsers.Account
                 string action = Request["action"];
                 if (action == "login" && user == "Joe" && pass == "secret")
                 {
-                    FormsAuthentication.SetAuthCookie(user, false);
+                    FormsAuthentication.RedirectFromLoginPage(user, false);
                 }
                 else
                 {
                     FormsAuthentication.SignOut();
+                    Response.Redirect(Request.Path);
                 }
-                Response.Redirect(Request.Path);
             }
         }
 

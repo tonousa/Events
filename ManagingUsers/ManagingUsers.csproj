@@ -108,6 +108,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

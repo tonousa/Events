@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Admin\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

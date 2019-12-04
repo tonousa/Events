@@ -10,17 +10,21 @@
         div {margin-top: 5px;}
         label {display: inline-block; width: 90px; }
         button {margin: 10px 10px 0 0 ;}
+        span.error {color:red; border: solid double red; visibility: collapse;}
     </style>
 </head>
 <body>
-    <div class="details">The request is authenticated: <%: GetRequestStatus() %></div>
-    <div class="details">The current user is: <%: GetUser() %></div>
+    <%--<div class="details">The request is authenticated: <%: GetRequestStatus() %></div>
+    <div class="details">The current user is: <%: GetUser() %></div>--%>
     <form id="form1" runat="server">
+        <span id="message" class="error" runat="server">
+            Incorrect Username or Password. Try again.
+        </span>
         <div><label>User:</label><input name="user" /></div>
         <div><label>Password:</label><input name="pass" type="password" /></div>
         <div>
             <button name="action" value="login" type="submit">Log In</button>
-            <button name="action" value="logout" type="submit">Log Out</button>
+            <%--<button name="action" value="logout" type="submit">Log Out</button>--%>
         </div>
     </form>
 </body>

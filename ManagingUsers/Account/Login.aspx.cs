@@ -23,9 +23,16 @@ namespace ManagingUsers.Account
                 }
                 else
                 {
-                    FormsAuthentication.SignOut();
-                    Response.Redirect(Request.Path);
+                    //FormsAuthentication.SignOut();
+                    //Response.Redirect(Request.Path);
+                    message.Style["visibility"] = "visible";
                 }
+            }
+            else if (Request.IsAuthenticated)
+            {
+                Response.StatusCode = 403;
+                Response.SuppressContent = true;
+                Context.ApplicationInstance.CompleteRequest();
             }
         }
 

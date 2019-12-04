@@ -1,12 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Open.aspx.cs" Inherits="ManagingUsers.Admin.Open" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Open.aspx.cs" Inherits="ManagingUsers.Admin.Open" MasterPageFile="~/Auth.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
+<asp:Content ContentPlaceHolderID="bodyContent" runat="server">
     <p>This is /Admin/Open.aspx</p>
-</body>
-</html>
+</asp:Content>

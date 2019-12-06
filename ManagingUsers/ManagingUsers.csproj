@@ -80,6 +80,10 @@
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
     <Content Include="Admin\Open.aspx" />
+    <Content Include="App_Data\Membership.mdf" />
+    <Content Include="App_Data\Membership_log.ldf">
+      <DependentUpon>Membership.mdf</DependentUpon>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Admin\Web.config" />
     <Content Include="Auth.Master" />
@@ -94,7 +98,9 @@
     <Content Include="Admin\Restricted.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Login.aspx.cs">

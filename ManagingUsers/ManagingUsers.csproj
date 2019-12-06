@@ -78,6 +78,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Account\Change.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Admin\Open.aspx" />
     <Content Include="App_Data\Membership.mdf" />
@@ -103,6 +104,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Change.aspx.cs">
+      <DependentUpon>Change.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Change.aspx.designer.cs">
+      <DependentUpon>Change.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

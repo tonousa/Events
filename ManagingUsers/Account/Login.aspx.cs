@@ -17,9 +17,10 @@ namespace ManagingUsers.Account
                 string user = Request["user"];
                 string pass = Request["pass"];
                 string action = Request["action"];
-                if (action == "login" && user == "Joe" && pass == "secret")
-                {
-                    FormsAuthentication.RedirectFromLoginPage(user, false);
+                //if (action == "login" && user == "Joe" && pass == "secret")
+                if (action == "login" && Membership.ValidateUser(user, pass))
+                    {
+                        FormsAuthentication.RedirectFromLoginPage(user, false);
                 }
                 else
                 {

@@ -80,6 +80,7 @@
   <ItemGroup>
     <Content Include="Account\Change.aspx" />
     <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Recover.aspx" />
     <Content Include="Admin\Open.aspx" />
     <Content Include="App_Data\Membership.mdf" />
     <Content Include="App_Data\Membership_log.ldf">
@@ -117,6 +118,13 @@
     </Compile>
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Recover.aspx.cs">
+      <DependentUpon>Recover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Recover.aspx.designer.cs">
+      <DependentUpon>Recover.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Open.aspx.cs">
       <DependentUpon>Open.aspx</DependentUpon>

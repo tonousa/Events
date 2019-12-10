@@ -27,11 +27,14 @@ namespace ManagingUsers.Account
                             {
                                 string newPassword =
                                     mUser.ResetPassword(Request["answer"]);
-                                username.Visible = false;
-                                question.Visible = false;
-                                newpass.Visible = true;
-                                password.InnerText = newPassword;
-                                task.Value = "Log In";
+                                Session["oldpass"] = newPassword;
+                                FormsAuthentication.SetAuthCookie(mUser.UserName, false);
+                                Response.Redirect("/Account/Change.aspx");
+                                //username.Visible = false;
+                                //question.Visible = false;
+                                //newpass.Visible = true;
+                                //password.InnerText = newPassword;
+                                //task.Value = "Log In";
                             }
                             catch (Exception)
                             {

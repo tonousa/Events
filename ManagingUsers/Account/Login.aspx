@@ -24,6 +24,7 @@
         <div><label>Password:</label><input name="pass" type="password" /></div>
         <div>
             <button name="action" value="login" type="submit">Log In</button>
+            <a href="Register.aspx">Create an account</a>
             <%--<button name="action" value="logout" type="submit">Log Out</button>--%>
         </div>
     </form>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -16,7 +17,11 @@ namespace ConfigFiles
 
         public IEnumerable<string> GetConfig()
         {
-            yield return "This is a placeholder.";
+            foreach (string key in WebConfigurationManager.AppSettings)
+            {
+                yield return string.Format("{0} = {1}",
+                    key, WebConfigurationManager.AppSettings[key]);
+            }
         }
     }
 }

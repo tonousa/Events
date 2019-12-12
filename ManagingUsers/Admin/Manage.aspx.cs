@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -21,11 +22,30 @@ namespace ManagingUsers.Admin
         {
             if (IsPostBack)
             {
-                if (true)
+                if (Request["unlock"] != null)
                 {
-
+                    Membership.GetUser(Request["unlock"]).UnlockUser();
+                }
+                else if (Request["delete"] != null)
+                {
+                    if (Request["delete"] != Membership.GetUser().UserName)
+                    {
+                        Membership.DeleteUser(Request["delete"]);
+                    }
                 }
             }
         }
+
+        public IEnumerable<UserDetails> GetUsers()
+        {
+            return Membership.GetAllUsers()
+                .Cast<MembershipUser>().Select(m => new UserDetails {
+                    Name = m.UserName,
+                    Roles = String.Join(", ", Roles.GetRolesForUser(m.UserName)),
+                    Locked = m.IsLockedOut,
+                    Online = m.IsOnline
+                });
+        }
+
     }
 }

@@ -13,7 +13,7 @@
 <body>
     <form id="form1" runat="server">
         <h3>Manage Users</h3>
-        <div>There are <%: Membership.GetNumberOfUsersOnline() %></div>
+        <div>There are <%: Membership.GetNumberOfUsersOnline() %> users online.</div>
         <div>
             <table>
                 <tr><th>Name</th><th>Roles</th><th>Locked</th>

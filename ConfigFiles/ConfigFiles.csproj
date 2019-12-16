@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="SelectCity.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +101,13 @@
     <Compile Include="PlaceCollection.cs" />
     <Compile Include="PlacesSection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectCity.aspx.cs">
+      <DependentUpon>SelectCity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelectCity.aspx.designer.cs">
+      <DependentUpon>SelectCity.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserAndPlaceSectionGroup.cs" />
   </ItemGroup>
   <PropertyGroup>

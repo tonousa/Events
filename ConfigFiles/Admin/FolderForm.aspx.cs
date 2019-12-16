@@ -17,10 +17,19 @@ namespace ConfigFiles.Admin
 
         public IEnumerable<string> GetConfig()
         {
-            foreach (string key in WebConfigurationManager.AppSettings)
+            newUserDefaultsSection defaults =
+                (newUserDefaultsSection)WebConfigurationManager
+                    .GetSection("customDefaults/newUserDefaults");
+            yield return string.Format("Defaults: {0}, {1}, {2}, {3}",
+                defaults.City, defaults.Country, defaults.Language, defaults.Region);
+
+            PlacesSection places =
+                (PlacesSection)WebConfigurationManager
+                    .GetSection("customDefaults/places");
+            foreach (Place place in places.Places)
             {
-                yield return string.Format("{0} = {1}",
-                    key, WebConfigurationManager.AppSettings[key]);
+                yield return string.Format("Place: {0}, {1}, {2}",
+                    place.Code, place.City, place.Country);
             }
         }
     }

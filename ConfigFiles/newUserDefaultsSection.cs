@@ -33,9 +33,9 @@ namespace ConfigFiles
 
         [ConfigurationProperty("regionCode")]
         [IntegerValidator(MaxValue =5, MinValue =0)]
-        public string Region
+        public int Region
         {
-            get { return (string)this["regionCode"]; }
+            get { return (int)this["regionCode"]; }
             set { this["regionCode"] = value; }
         }
 

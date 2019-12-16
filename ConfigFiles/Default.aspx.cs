@@ -73,14 +73,20 @@ namespace ConfigFiles
             //}
 
             Configuration config = WebConfigurationManager.OpenWebConfiguration(Request.Path);
+            newUserDefaultsSection section = 
+                (newUserDefaultsSection)config.Sections["newUserDefaults"];
 
-            foreach (ConfigurationSectionGroup group in config.SectionGroups)
-            {
-                foreach (string str in processSectionGroup(group))
-                {
-                    yield return str;
-                }
-            }
+            yield return string.Format("city = {0}", section.City);
+            yield return string.Format("country = {0}", section.Country);
+            yield return string.Format("language = {0}", section.Language);
+            yield return string.Format("region = {0}", section.Region);
+            //foreach (ConfigurationSectionGroup group in config.SectionGroups)
+            //{
+            //    foreach (string str in processSectionGroup(group))
+            //    {
+            //        yield return str;
+            //    }
+            //}
 
             //SystemWebSectionGroup group =
             //    (SystemWebSectionGroup)config.SectionGroups["system.web"];

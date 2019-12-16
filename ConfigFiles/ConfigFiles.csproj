@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="Admin\FolderForm.aspx" />
     <Content Include="packages.config" />
+    <Content Include="AppSettings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

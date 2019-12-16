@@ -15,7 +15,7 @@ namespace AsyncApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string targetUrl = "http://asp.net";
+            string targetUrl = "https://www.ebay.com";
             WebClient client = new WebClient();
             result = new WebSiteResult { Url = targetUrl };
             Stopwatch sw = Stopwatch.StartNew();

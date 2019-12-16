@@ -74,7 +74,11 @@ namespace ConfigFiles
 
             Configuration config = WebConfigurationManager.OpenWebConfiguration(Request.Path);
 
-            PlacesSection places = (PlacesSection)config.Sections["places"];
+            //PlacesSection places = (PlacesSection)config.Sections["places"];
+
+            UserAndPlaceSectionGroup group
+                = (UserAndPlaceSectionGroup)config.SectionGroups["customDefaults"];
+            PlacesSection places = group.Places;
 
             Place defaultPlace = places.Places[places.Default];
             yield return string.Format("the default is: {0} (City: {1}, Country: {2})",

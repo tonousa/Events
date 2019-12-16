@@ -99,6 +99,7 @@
     <Compile Include="PlaceCollection.cs" />
     <Compile Include="PlacesSection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserAndPlaceSectionGroup.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

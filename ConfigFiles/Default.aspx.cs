@@ -73,13 +73,25 @@ namespace ConfigFiles
             //}
 
             Configuration config = WebConfigurationManager.OpenWebConfiguration(Request.Path);
-            newUserDefaultsSection section = 
-                (newUserDefaultsSection)config.Sections["newUserDefaults"];
 
-            yield return string.Format("city = {0}", section.City);
-            yield return string.Format("country = {0}", section.Country);
-            yield return string.Format("language = {0}", section.Language);
-            yield return string.Format("region = {0}", section.Region);
+            PlacesSection places = (PlacesSection)config.Sections["places"];
+
+            Place defaultPlace = places.Places[places.Default];
+            yield return string.Format("the default is: {0} (City: {1}, Country: {2})",
+                places.Default, defaultPlace.City, defaultPlace.Country);
+
+            foreach (Place p in places.Places)
+            {
+                yield return string.Format("{0} {1}", p.City, p.Country);
+            }
+
+            //newUserDefaultsSection section = 
+            //    (newUserDefaultsSection)config.Sections["newUserDefaults"];
+
+            //yield return string.Format("city = {0}", section.City);
+            //yield return string.Format("country = {0}", section.Country);
+            //yield return string.Format("language = {0}", section.Language);
+            //yield return string.Format("region = {0}", section.Region);
             //foreach (ConfigurationSectionGroup group in config.SectionGroups)
             //{
             //    foreach (string str in processSectionGroup(group))

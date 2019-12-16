@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagingUsers", "ManagingUs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigFiles", "ConfigFiles\ConfigFiles.csproj", "{CB2BC832-DC09-4899-A630-B5AE8BFC9AE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncApp", "AsyncApp\AsyncApp.csproj", "{1FE4CE92-4759-47EA-A907-D372D4239EFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{CB2BC832-DC09-4899-A630-B5AE8BFC9AE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB2BC832-DC09-4899-A630-B5AE8BFC9AE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB2BC832-DC09-4899-A630-B5AE8BFC9AE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FE4CE92-4759-47EA-A907-D372D4239EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FE4CE92-4759-47EA-A907-D372D4239EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FE4CE92-4759-47EA-A907-D372D4239EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FE4CE92-4759-47EA-A907-D372D4239EFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

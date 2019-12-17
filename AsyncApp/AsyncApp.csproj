@@ -89,7 +89,6 @@
     </Compile>
     <Compile Include="Multiples.aspx.cs">
       <DependentUpon>Multiples.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Multiples.aspx.designer.cs">
       <DependentUpon>Multiples.aspx</DependentUpon>

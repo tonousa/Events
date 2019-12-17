@@ -19,11 +19,16 @@ namespace AsyncApp
             WebClient client = new WebClient();
             result = new WebSiteResult { Url = targetUrl };
             Stopwatch sw = Stopwatch.StartNew();
-            string webContent = client.DownloadString(targetUrl);
-            result.Length = webContent.Length;
+
+            RegisterAsyncTask(new PageAsyncTask(async () =>
+            {
+                string webContent = await client.DownloadStringTaskAsync(targetUrl);
+                result.Length = webContent.Length;
+                result.Total =
+                    (long)DateTime.Now.Subtract(Context.Timestamp).TotalMilliseconds;
+            }));
+
             result.Blocked = sw.ElapsedMilliseconds;
-            result.Total
-                = (long)DateTime.Now.Subtract(Context.Timestamp).TotalMilliseconds;
         }
 
         public WebSiteResult GetResult()

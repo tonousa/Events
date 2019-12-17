@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AsyncApp.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" AsyncTimeout="60" CodeBehind="Default.aspx.cs" Inherits="AsyncApp.Default" %>
 
 <!DOCTYPE html>
 

@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WorkingWithControls.Default" %>
 
+<%@ Register TagPrefix="CC" TagName="UCButton" Src="~/ButtonCountUserControl.ascx" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,6 +17,8 @@
     <div>
         <button type="submit">Submit</button>
     </div>
+
+        <CC:UCButton ID="userControl" runat="server" />
     </form>
 </body>
 </html>

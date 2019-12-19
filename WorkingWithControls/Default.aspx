@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WorkingWithControls.Default" %>
 
 <%@ Register TagPrefix="CC" TagName="UCButton" Src="~/ButtonCountUserControl.ascx" %>
+<%@ Register TagPrefix="SC" Assembly="WorkingWithControls" Namespace="WorkingWithControls" %>
 
 <!DOCTYPE html>
 
@@ -19,6 +20,8 @@
     </div>
 
         <CC:UCButton ID="userControl" runat="server" />
+
+        <SC:ButtonCountServerControl id="serverControl" runat="server" />
     </form>
 </body>
 </html>

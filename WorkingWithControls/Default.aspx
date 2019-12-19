@@ -2,6 +2,7 @@
 
 <%@ Register TagPrefix="CC" TagName="UCButton" Src="~/ButtonCountUserControl.ascx" %>
 <%@ Register TagPrefix="SC" Assembly="WorkingWithControls" Namespace="WorkingWithControls" %>
+<%@ Register TagPrefix="CC" TagName="UCTriple" Src="~/TripleButtonControl.ascx" %>
 
 <!DOCTYPE html>
 
@@ -22,6 +23,8 @@
         <CC:UCButton ID="userControl" runat="server" />
 
         <SC:ButtonCountServerControl id="serverControl" runat="server" />
+
+        <CC:UCTriple ID="tripleControl" runat="server" />
     </form>
 </body>
 </html>

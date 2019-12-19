@@ -25,6 +25,16 @@
         <SC:ButtonCountServerControl id="serverControl" runat="server" />
 
         <CC:UCTriple ID="tripleControl" runat="server" />
+
+        <div>
+            UI Button presses:
+            <asp:Label ID="uiLabel" Font-Bold="true" Font-Size="Larger"
+                 runat="server"></asp:Label>
+        </div>
+        <div>
+            <asp:Button ID="uiButton" Text="Submit (UI)" 
+                OnClick="ButtonClick" runat="server" />
+        </div>
     </form>
 </body>
 </html>

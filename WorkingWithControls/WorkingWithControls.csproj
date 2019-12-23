@@ -89,6 +89,7 @@
     <Compile Include="ButtonCountUserControl.ascx.designer.cs">
       <DependentUpon>ButtonCountUserControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ControlUtils.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

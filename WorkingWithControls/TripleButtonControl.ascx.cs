@@ -22,6 +22,7 @@ namespace WorkingWithControls
             {
                 GetClickCounts()[index].Count++;
             }
+            //ControlUtils.EnumerateControls(this);
         }
 
         public ButtonCountResult[] GetClickCounts()

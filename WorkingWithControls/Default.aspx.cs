@@ -17,6 +17,14 @@ namespace WorkingWithControls
                 Session["counter"] = ++countVal;
             }
             counter.InnerText = countVal.ToString();
+            ControlUtils.EnumerateControls(this, true);
+        }
+
+        protected void ButtonClick(object src, EventArgs args)
+        {
+            int count = (int)(Session["ui_counter"] ?? 0);
+            Session["ui_counter"] = ++count;
+            uiLabel.Text = count.ToString();
         }
     }
 }

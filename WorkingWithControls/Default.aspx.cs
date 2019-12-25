@@ -17,7 +17,8 @@ namespace WorkingWithControls
                 Session["counter"] = ++countVal;
             }
             counter.InnerText = countVal.ToString();
-            ControlUtils.EnumerateControls(this, true);
+            //ControlUtils.EnumerateControls(this, true);
+            ControlUtils.AddButtonClickHandlers(this);
         }
 
         protected void ButtonClick(object src, EventArgs args)

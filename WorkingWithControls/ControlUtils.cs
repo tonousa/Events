@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace WorkingWithControls
 {
@@ -22,6 +23,26 @@ namespace WorkingWithControls
                     {
                         EnumerateControls(c, ignoreLiteral);
                     }
+                }
+            }
+        }
+
+        public static void AddButtonClickHandlers(Control target)
+        {
+            foreach (Control c in target.Controls.Cast<Control>())
+            {
+                if (c is Button)
+                {
+                    Button b = c as Button;
+                    b.Text += " (+)";
+                    b.Click += (src, args) =>
+                    {
+                        Debug.WriteLine("Button clicked: " + b.Text);
+                    };
+                }
+                else if (c.Controls.Count > 0)
+                {
+                    AddButtonClickHandlers(c);
                 }
             }
         }

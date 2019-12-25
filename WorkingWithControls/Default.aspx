@@ -33,7 +33,7 @@
         </div>
         <div>
             <asp:Button ID="uiButton" Text="Submit (UI)" 
-                OnClick="ButtonClick" runat="server" />
+                OnClick="ButtonClick" runat="server" ViewStateMode="Disabled" />
         </div>
     </form>
 </body>

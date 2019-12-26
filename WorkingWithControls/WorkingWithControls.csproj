@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Colors.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -88,6 +89,13 @@
     </Compile>
     <Compile Include="ButtonCountUserControl.ascx.designer.cs">
       <DependentUpon>ButtonCountUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Colors.aspx.cs">
+      <DependentUpon>Colors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Colors.aspx.designer.cs">
+      <DependentUpon>Colors.aspx</DependentUpon>
     </Compile>
     <Compile Include="ControlUtils.cs" />
     <Compile Include="Default.aspx.cs">

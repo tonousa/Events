@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" method="get">
         <button type="submit" name="action" value="click">Click me</button>
         <span id="result" runat="server"></span>
     </form>

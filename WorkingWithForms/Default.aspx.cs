@@ -11,7 +11,8 @@ namespace WorkingWithForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            //if (IsPostBack)
+            if (Request.HttpMethod == "POST")
             {
                 if (Request.Form["action"] == "click")
                 {

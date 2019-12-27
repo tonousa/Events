@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncApp", "AsyncApp\AsyncA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithControls", "WorkingWithControls\WorkingWithControls.csproj", "{805933C3-939A-47B4-9D21-C0AE55981799}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithForms", "WorkingWithForms\WorkingWithForms.csproj", "{8795121B-173E-4CCD-A831-D4C407FFD120}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{805933C3-939A-47B4-9D21-C0AE55981799}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{805933C3-939A-47B4-9D21-C0AE55981799}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{805933C3-939A-47B4-9D21-C0AE55981799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8795121B-173E-4CCD-A831-D4C407FFD120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8795121B-173E-4CCD-A831-D4C407FFD120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8795121B-173E-4CCD-A831-D4C407FFD120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8795121B-173E-4CCD-A831-D4C407FFD120}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

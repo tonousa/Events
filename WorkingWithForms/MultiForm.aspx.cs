@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
 namespace WorkingWithForms
 {
@@ -11,16 +11,25 @@ namespace WorkingWithForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.HttpMethod == "POST" && Request.Form["button2"] != null)
+            if (Request.HttpMethod == "POST")
             {
-                result.InnerHtml = string.Format("The city is: {0}",
-                    Request.Form["city"]);
-                city.Value = Request.Form["city"];
+                string name = Request.Form["button"];
+                result.InnerText = string.Format("the {0} is {1}", name, GetValue(name));
             }
-            else if (Request.Form["button1"] != null)
+        }
+
+        private object GetValue(string name)
+        {
+            string formValue = Request.Form[name];
+            if (formValue != null)
             {
-                result.InnerHtml = color.Text;
+                Control c = FindControl(name);
+                if (c is HtmlInputText)
+                {
+                    ((HtmlInputText)c).Value = formValue;
+                }
             }
+            return formValue;
         }
 
         protected void button1_Click(object sender, EventArgs e)

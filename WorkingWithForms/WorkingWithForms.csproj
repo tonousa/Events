@@ -87,6 +87,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Valid.aspx" />
+    <Content Include="ValidControls.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +125,13 @@
     </Compile>
     <Compile Include="Valid.aspx.designer.cs">
       <DependentUpon>Valid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ValidControls.aspx.cs">
+      <DependentUpon>ValidControls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ValidControls.aspx.designer.cs">
+      <DependentUpon>ValidControls.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

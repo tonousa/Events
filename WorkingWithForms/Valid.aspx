@@ -17,6 +17,7 @@
     <div><button type="submit">Submit</button></div>
     <div>The name value you entered was <span runat="server" id="nameResult" /></div>
     <div>The html you entered was <span runat="server" id="htmlResult" /></div>
+    <div>The html you entered was <%= Request.Unvalidated.Form["html"] %></div>
     </form>
 </body>
 </html>

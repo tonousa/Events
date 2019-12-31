@@ -11,7 +11,22 @@ namespace Controls.Custom
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.HttpMethod == "POST")
+            {
+                int firstVal = int.Parse(GetFormValue("firstNumber"));
+                int secondVal = int.Parse(GetFormValue("secondNumber"));
+                result.InnerText = (firstVal + secondVal).ToString();
+            }
+        }
 
+        private string GetFormValue(string name)
+        {
+            return Request.Form[GetId(name)];
+        }
+
+        protected string GetId(string name)
+        {
+            return string.Format("{0}{1}{2}", ClientID, ClientIDSeparator, name);
         }
     }
 }

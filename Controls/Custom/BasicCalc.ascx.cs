@@ -9,8 +9,16 @@ namespace Controls.Custom
 {
     public partial class BasicCalc : System.Web.UI.UserControl
     {
+        public enum OperationType
+        {
+            Plus,
+            Minus
+        }
+
         public int FirstValue { get; set; }
         public int SecondValue { get; set; }
+        public OperationType Operation { get; set; }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,7 +26,9 @@ namespace Controls.Custom
             {
                 FirstValue = int.Parse(GetFormValue("firstNumber"));
                 SecondValue = int.Parse(GetFormValue("secondNumber"));
-                result.InnerText = (FirstValue + SecondValue).ToString();
+                result.InnerText = (Operation == OperationType.Plus 
+                    ? (FirstValue + SecondValue) 
+                    : (FirstValue - SecondValue)).ToString();
             }
             //else
             //{

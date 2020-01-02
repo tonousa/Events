@@ -11,7 +11,8 @@ This is the BasicCalc control
 </script>
 
 <div>
-    <input name="<%= GetId("firstNumber") %>" value="<%= FirstValue %>" /> + 
+    <input name="<%= GetId("firstNumber") %>" value="<%= FirstValue %>" />
+    <%= Operation == OperationType.Plus ? "+" : "-" %>
     <input name="<%= GetId("secondNumber") %>" value="<%= SecondValue %>" />
     <button type="submit">=</button>
     <span runat="server" id="result"></span>

@@ -9,14 +9,22 @@ namespace Controls.Custom
 {
     public partial class BasicCalc : System.Web.UI.UserControl
     {
+        public int FirstValue { get; set; }
+        public int SecondValue { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.HttpMethod == "POST")
             {
-                int firstVal = int.Parse(GetFormValue("firstNumber"));
-                int secondVal = int.Parse(GetFormValue("secondNumber"));
-                result.InnerText = (firstVal + secondVal).ToString();
+                FirstValue = int.Parse(GetFormValue("firstNumber"));
+                SecondValue = int.Parse(GetFormValue("secondNumber"));
+                result.InnerText = (FirstValue + SecondValue).ToString();
             }
+            //else
+            //{
+            //    System.Diagnostics.Debug.WriteLine("ID: {0}, UniqueID: {1}",
+            //        result.ID, result.UniqueID);
+            //}
         }
 
         private string GetFormValue(string name)

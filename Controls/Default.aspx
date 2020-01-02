@@ -21,8 +21,12 @@
             <span id="result" runat="server"></span>
         </div>
         <div>
-            <CC:Calc runat="server" id="calc" firstValue="100" secondValue="31"
-                 operation="Minus" />
+            <CC:Calc runat="server" id="Calc" Initial="100">
+                <Calculations>
+                    <CC:Calculation operation="Plus" value="10" />
+                    <CC:Calculation operation="Minus" value="20" />
+                </Calculations>
+            </CC:Calc>
         </div>
     </form>
 </body>

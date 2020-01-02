@@ -7,6 +7,12 @@ using System.Web.UI.WebControls;
 
 namespace Controls.Custom
 {
+    public class Calculation
+    {
+        public BasicCalc.OperationType Operation { get; set; }
+        public int Value { get; set; }
+    }
+
     public partial class BasicCalc : System.Web.UI.UserControl
     {
         public enum OperationType
@@ -24,11 +30,16 @@ namespace Controls.Custom
         {
             if (Request.HttpMethod == "POST")
             {
-                FirstValue = int.Parse(GetFormValue("firstNumber"));
-                SecondValue = int.Parse(GetFormValue("secondNumber"));
-                result.InnerText = (Operation == OperationType.Plus 
-                    ? (FirstValue + SecondValue) 
-                    : (FirstValue - SecondValue)).ToString();
+                int total = int.Parse(GetFormValue("initialVal"));
+                string[] numbers = GetFormValue("calcValue").Split(',');
+                string[] operators = GetFormValue("calcOp").Split(',');
+                for (int i = 0; i < operators.Length; i++)
+                {
+                    int val = int.Parse(numbers[i]);
+                    total += operators[i] == "Plus" ? val : 0 - val;
+                }
+
+                result.InnerText = total.ToString();
             }
             //else
             //{
@@ -36,6 +47,15 @@ namespace Controls.Custom
             //        result.ID, result.UniqueID);
             //}
         }
+
+        public List<Calculation> Calculations { get; set; }
+
+        public List<Calculation> GetCalculations()
+        {
+            return Calculations;
+        }
+
+        public int Initial { get; set; }
 
         private string GetFormValue(string name)
         {

@@ -28,6 +28,14 @@
                 </Calculations>
             </CC:Calc>
         </div>
+        <div>
+            <CC:ServerCalc Initial="100" runat="server">
+                <Calculations>
+                    <CC:Calculation operation="Plus" value="10" />
+                    <CC:Calculation operation="Minus" value="30" />
+                </Calculations>
+            </CC:ServerCalc>
+        </div>
     </form>
 </body>
 </html>

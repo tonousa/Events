@@ -38,7 +38,38 @@ namespace Controls.Custom
             writer.Write("This is the ServerCalc control");
             writer.RenderBeginTag(HtmlTextWriterTag.Div);
 
+            writer.AddAttribute(HtmlTextWriterAttribute.Name, GetId("initialVal"));
+            writer.AddAttribute(HtmlTextWriterAttribute.Value, Initial.ToString());
+            writer.RenderBeginTag(HtmlTextWriterTag.Input);
 
+            foreach (Calculation calc in Calculations)
+            {
+                writer.Write(calc.Operation == BasicCalc.OperationType.Plus ?
+                    " + " : " - ");
+                writer.AddAttribute(HtmlTextWriterAttribute.Name, GetId("calcValue"));
+                writer.AddAttribute(HtmlTextWriterAttribute.Value, calc.Value.ToString());
+                writer.RenderBeginTag(HtmlTextWriterTag.Input);
+                writer.RenderEndTag();
+
+                writer.AddAttribute(HtmlTextWriterAttribute.Type, "hidden");
+                writer.AddAttribute(HtmlTextWriterAttribute.Name, GetId("calcOp"));
+                writer.AddAttribute(HtmlTextWriterAttribute.Value, 
+                    calc.Operation.ToString());
+                writer.RenderBeginTag(HtmlTextWriterTag.Input);
+                writer.RenderEndTag();
+            }
+
+            writer.Write(" ");
+            writer.AddAttribute(HtmlTextWriterAttribute.Type, "submit");
+            writer.RenderBeginTag(HtmlTextWriterTag.Button);
+            writer.Write("=");
+            writer.RenderEndTag();
+
+            if (total.HasValue)
+            {
+                writer.Write(" " + total.Value);
+            }
+            writer.RenderEndTag();
         }
 
         protected string GetFormValue(string name)

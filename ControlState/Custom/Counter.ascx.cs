@@ -35,8 +35,15 @@ namespace ControlState.Custom
 
         private void LoadStateData()
         {
-            LeftValue = (Session[GetSessionKey("left")] as int?) ?? LeftValue;
-            RightValue = (Session[GetSessionKey("right")] as int?) ?? RightValue;
+            int temp;
+            if (int.TryParse(GetValue("left"), out temp))
+            {
+                LeftValue = temp;
+            }
+            if (int.TryParse(GetValue("right"), out temp))
+            {
+                RightValue = temp;
+            }
         }
 
         private string GetSessionKey(string name)

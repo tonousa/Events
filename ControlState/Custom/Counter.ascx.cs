@@ -7,6 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace ControlState.Custom
 {
+    [Serializable]
+    public class CounterControlState
+    {
+        public int LeftValue { get; set; }
+        public int RightValue { get; set; }
+    }
+
     public partial class Counter : System.Web.UI.UserControl
     {
         public int LeftValue { get; set; }
@@ -29,21 +36,35 @@ namespace ControlState.Custom
 
         private void SaveStateData()
         {
-            Session[GetSessionKey("left")] = LeftValue;
-            Session[GetSessionKey("right")] = RightValue;
+            ViewState["mystate"] = new CounterControlState
+            {
+                LeftValue = this.LeftValue,
+                RightValue = this.RightValue
+            };
+
+            //Session[GetSessionKey("left")] = LeftValue;
+            //Session[GetSessionKey("right")] = RightValue;
         }
 
         private void LoadStateData()
         {
-            int temp;
-            if (int.TryParse(GetValue("left"), out temp))
+            CounterControlState state = ViewState["mystate"] as CounterControlState;
+
+            if (state != null)
             {
-                LeftValue = temp;
+                LeftValue = state.LeftValue;
+                RightValue = state.RightValue;
             }
-            if (int.TryParse(GetValue("right"), out temp))
-            {
-                RightValue = temp;
-            }
+
+            //int temp;
+            //if (int.TryParse(GetValue("left"), out temp))
+            //{
+            //    LeftValue = temp;
+            //}
+            //if (int.TryParse(GetValue("right"), out temp))
+            //{
+            //    RightValue = temp;
+            //}
         }
 
         private string GetSessionKey(string name)

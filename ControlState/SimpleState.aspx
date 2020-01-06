@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SimpleState.aspx.cs" Inherits="ControlState.SimpleState" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SimpleState.aspx.cs" Inherits="ControlState.SimpleState" EnableViewState="true" ViewStateEncryptionMode="Auto"
+     EnableViewStateMac="true" ViewStateMode="Disabled" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div><CC:SimpleTime runat="server" /></div>
+        <div><CC:SimpleTime runat="server" ViewStateMode="Enabled" /></div>
         <div>View State works: <%= ViewStateWorks %></div>
         <div>Control State works: <%= ControlStateWorks %></div>
         <button type="submit">Submit</button>

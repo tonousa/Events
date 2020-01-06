@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <CC:Counter LeftValue="10" RightValue="10" runat="server" />
+        <CC:Counter LeftValue="10" RightValue="10" runat="server" EnableViewState="false" />
     </form>
 </body>
 </html>

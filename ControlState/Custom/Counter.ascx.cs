@@ -19,19 +19,44 @@ namespace ControlState.Custom
         public int LeftValue { get; set; }
         public int RightValue { get; set; }
 
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            Page.RegisterRequiresControlState(this);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadStateData();
-            string button = GetValue("button");
-            if (button == GetId("left"))
+            if (IsPostBack)
             {
-                LeftValue++;
+                string button = GetValue("button");
+                if (button == GetId("left"))
+                {
+                    LeftValue++;
+                }
+                else if (button == GetId("right"))
+                {
+                    RightValue++;
+                }
             }
-            else if (button == GetId("right"))
+        }
+
+        protected override object SaveControlState()
+        {
+            return new CounterControlState
             {
-                RightValue++;
+                LeftValue = this.LeftValue,
+                RightValue = this.RightValue
+            };
+        }
+
+        protected override void LoadControlState(object savedState)
+        {
+            CounterControlState state = savedState as CounterControlState;
+            if (state != null)
+            {
+                LeftValue = state.LeftValue;
+                RightValue = state.RightValue;
             }
-            SaveStateData();
         }
 
         private void SaveStateData()

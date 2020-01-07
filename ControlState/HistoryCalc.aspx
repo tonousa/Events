@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <CC:Calc runat="server" />
+        <CC:Calc runat="server" ViewStateMode="Disabled" />
     </form>
 </body>
 </html>

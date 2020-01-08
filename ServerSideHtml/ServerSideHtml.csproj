@@ -75,9 +75,25 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BaseClass.aspx" />
+    <Content Include="Container.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClass.aspx.cs">
+      <DependentUpon>BaseClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaseClass.aspx.designer.cs">
+      <DependentUpon>BaseClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Container.aspx.cs">
+      <DependentUpon>Container.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Container.aspx.designer.cs">
+      <DependentUpon>Container.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup>

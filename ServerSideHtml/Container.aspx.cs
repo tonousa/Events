@@ -13,7 +13,8 @@ namespace ServerSideHtml
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ProcessContainerControl(outerDiv);
+            //ProcessContainerControl(outerDiv);
+            outerDiv.InnerText = "<b>This is the div elemment</b>";
         }
 
         protected void ProcessContainerControl(HtmlContainerControl c)

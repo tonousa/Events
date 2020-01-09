@@ -23,14 +23,14 @@
                         <td>Red</td><td>2</td>
                     </tr>
                     <tr>
-                        <td>Green</td><td>41</td>
+                        <td>Green</td><td runat="server" id="greenCell">41</td>
                     </tr>
                     <tr>
                         <td>Blue</td><td>3</td>
                     </tr>
                 </tbody>
                 <tfoot>
-                    <tr><th>Total:</th><th>46</th></tr>
+                    <tr><th>Total:</th><th runat="server" id="totalCell">46</th></tr>
                 </tfoot>
             </table>
         </div>

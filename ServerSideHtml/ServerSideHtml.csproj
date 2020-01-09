@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CreateTable.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -106,6 +107,13 @@
     </Compile>
     <Compile Include="CreateForm.aspx.designer.cs">
       <DependentUpon>CreateForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTable.aspx.cs">
+      <DependentUpon>CreateTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateTable.aspx.designer.cs">
+      <DependentUpon>CreateTable.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form5.aspx.cs">
       <DependentUpon>Form5.aspx</DependentUpon>

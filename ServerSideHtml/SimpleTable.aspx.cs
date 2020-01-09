@@ -15,20 +15,22 @@ namespace ServerSideHtml
         {
             if (IsPostBack)
             {
-                foreach ( HtmlTableRow row in colorTable.Rows)
-                {
-                    foreach (HtmlTableCell cell in row.Cells)
-                    {
-                        if (cell.TagName == "td")
-                        {
-                            Debug.WriteLine(string.Format("Cell: {0}", cell.InnerText));
-                        }
-                    }
-                }
+                IncrementCellValues(greenCell, totalCell);
 
-                HtmlTableCell green = colorTable.Rows[2].Cells[1];
-                HtmlTableCell total = colorTable.Rows[4].Cells[1];
-                IncrementCellValues(green, total);
+                //foreach ( HtmlTableRow row in colorTable.Rows)
+                //{
+                //    foreach (HtmlTableCell cell in row.Cells)
+                //    {
+                //        if (cell.TagName == "td")
+                //        {
+                //            Debug.WriteLine(string.Format("Cell: {0}", cell.InnerText));
+                //        }
+                //    }
+                //}
+
+                //HtmlTableCell green = colorTable.Rows[2].Cells[1];
+                //HtmlTableCell total = colorTable.Rows[4].Cells[1];
+                //IncrementCellValues(green, total);
             }
         }
 

@@ -9,9 +9,24 @@
         label {display:inline-block; width:100px; text-align:right; margin: 5px;}
         div.panel {float:left; margin-left:10px;}
         div.panel label {text-align:right;}
+        div.error {color:red;}
     </style>
 </head>
 <body>
+    <asp:PlaceHolder ID="errorPanel" Visible="false" runat="server">
+        <div class="error panel">
+            Problems:
+            <ul>
+                <asp:Repeater runat="server" ItemType="System.String" 
+                    SelectMethod="GetModelValidationErrors" ViewStateMode="Disabled">
+                    <ItemTemplate>
+                        <li><%# Item %></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </ul>
+        </div>
+    </asp:PlaceHolder>
+
     <div class="panel">
         <form id="form1" runat="server">
             <div><label>Your name:</label><input id="name" runat="server" /></div>

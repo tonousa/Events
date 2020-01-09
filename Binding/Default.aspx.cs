@@ -17,6 +17,7 @@ namespace Binding
             if (IsPostBack)
             {
                 DisplayPerson(GetPerson());
+                errorPanel.Visible = !ModelState.IsValid;
             }
         }
 
@@ -27,14 +28,8 @@ namespace Binding
             IValueProvider provider =
                 new FormValueProvider(ModelBindingExecutionContext);
 
-            if (TryUpdateModel<Person>(model, provider))
-            {
-                return model;
-            }
-            else
-            {
-                throw new FormatException("could not bind model");
-            }
+            TryUpdateModel<Person>(model, provider);
+            return model;
 
             //model.Name = Request.Form["name"];
             //model.Age = int.Parse(Request.Form["age"]);
@@ -96,6 +91,23 @@ namespace Binding
             sage.InnerText = person.Age.ToString();
             scell.InnerText = person.Cell;
             szip.InnerText = person.Zip;
+        }
+
+        protected IEnumerable<string> GetModelValidationErrors()
+        {
+            if (!ModelState.IsValid)
+            {
+                foreach (KeyValuePair<string, ModelState> pair in ModelState)
+                {
+                    foreach (ModelError error in pair.Value.Errors)
+                    {
+                        if (!String.IsNullOrEmpty(error.ErrorMessage))
+                        {
+                            yield return error.ErrorMessage;
+                        }
+                    }
+                }
+            }
         }
     }
 }

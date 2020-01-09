@@ -19,6 +19,7 @@ namespace Binding.Models
 
         public string Cell { get; set; }
 
+        [CustomValidation(typeof(Binding.CustomChecks), "CheckZip")]
         public string Zip { get; set; }
     }
 }

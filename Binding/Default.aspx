@@ -13,8 +13,8 @@
     </style>
 </head>
 <body>
-    <asp:PlaceHolder ID="errorPanel" Visible="false" runat="server">
-        <div class="error panel">
+    <%--<asp:PlaceHolder ID="errorPanel" Visible="false" runat="server">
+        <div class="error">
             Problems:
             <ul>
                 <asp:Repeater runat="server" ItemType="System.String" 
@@ -25,22 +25,25 @@
                 </asp:Repeater>
             </ul>
         </div>
-    </asp:PlaceHolder>
+    </asp:PlaceHolder>--%>
 
-    <div class="panel">
-        <form id="form1" runat="server">
-            <div><label>Your name:</label><input id="name" runat="server" /></div>
-            <div><label>Your age:</label><input id="age" runat="server" /></div>
-            <div><label>Your cell no:</label><input id="cell" runat="server" /></div>
-            <div><label>Your zip:</label><input id="zip" runat="server" /></div>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-    <div class="panel">
-            <div><label>Your name:</label><span id="sname" runat="server" /></div>
-            <div><label>Your age:</label><span id="sage" runat="server" /></div>
-            <div><label>Your cell no:</label><span id="scell" runat="server" /></div>
-            <div><label>Your zip:</label><span id="szip" runat="server" /></div>
-    </div>
+    <form id="form1" runat="server">
+        <asp:ValidationSummary runat="server" CssClass="error"
+             HeaderText="Problems:" />
+
+        <div class="panel">
+                <div><label>Your name:</label><input id="name" runat="server" /></div>
+                <div><label>Your age:</label><input id="age" runat="server" /></div>
+                <div><label>Your cell no:</label><input id="cell" runat="server" /></div>
+                <div><label>Your zip:</label><input id="zip" runat="server" /></div>
+                <button type="submit">Submit</button>
+        </div>
+        <div class="panel">
+                <div><label>Your name:</label><span id="sname" runat="server" /></div>
+                <div><label>Your age:</label><span id="sage" runat="server" /></div>
+                <div><label>Your cell no:</label><span id="scell" runat="server" /></div>
+                <div><label>Your zip:</label><span id="szip" runat="server" /></div>
+        </div>
+    </form>
 </body>
 </html>

@@ -17,7 +17,7 @@ namespace Binding
             if (IsPostBack)
             {
                 DisplayPerson(GetPerson());
-                errorPanel.Visible = !ModelState.IsValid;
+                //errorPanel.Visible = !ModelState.IsValid;
             }
         }
 
@@ -93,7 +93,7 @@ namespace Binding
             szip.InnerText = person.Zip;
         }
 
-        protected IEnumerable<string> GetModelValidationErrors()
+        public IEnumerable<string> GetModelValidationErrors()
         {
             if (!ModelState.IsValid)
             {

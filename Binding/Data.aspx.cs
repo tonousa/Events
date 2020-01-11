@@ -29,7 +29,7 @@ namespace Binding
         //}
 
         public IEnumerable<string> GetData([Form] int? max,
-            [Control("opSelector", "selectedOperator")] string operation)
+            [Control("opOperator", "selectedOperator")] string operation)
         {
             if (operation != null)
             {

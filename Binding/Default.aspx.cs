@@ -12,24 +12,30 @@ namespace Binding
 {
     public partial class Default : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        //protected void Page_Load(object sender, EventArgs e)
+        //{
+        //    if (IsPostBack)
+        //    {
+        //        DisplayPerson(GetPerson());
+        //        //errorPanel.Visible = !ModelState.IsValid;
+        //    }
+        //}
+
+        public Person GetData([Form] Person person)
         {
-            if (IsPostBack)
-            {
-                DisplayPerson(GetPerson());
-                //errorPanel.Visible = !ModelState.IsValid;
-            }
+            return person;
         }
 
-        private Person GetPerson()
+        private Person GetPerson([Form] Person person)
         {
-            Person model = new Person();
+            return person;
+            //Person model = new Person();
 
-            IValueProvider provider =
-                new FormValueProvider(ModelBindingExecutionContext);
+            //IValueProvider provider =
+            //    new FormValueProvider(ModelBindingExecutionContext);
 
-            TryUpdateModel<Person>(model, provider);
-            return model;
+            //TryUpdateModel<Person>(model, provider);
+            //return model;
 
             //model.Name = Request.Form["name"];
             //model.Age = int.Parse(Request.Form["age"]);
@@ -85,13 +91,13 @@ namespace Binding
             //return model;
         }
 
-        private void DisplayPerson(Person person)
-        {
-            sname.InnerText = person.Name;
-            sage.InnerText = person.Age.ToString();
-            scell.InnerText = person.Cell;
-            szip.InnerText = person.Zip;
-        }
+        //private void DisplayPerson(Person person)
+        //{
+        //    sname.InnerText = person.Name;
+        //    sage.InnerText = person.Age.ToString();
+        //    scell.InnerText = person.Cell;
+        //    szip.InnerText = person.Zip;
+        //}
 
         public IEnumerable<string> GetModelValidationErrors()
         {

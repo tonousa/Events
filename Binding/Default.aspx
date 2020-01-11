@@ -39,10 +39,16 @@
                 <button type="submit">Submit</button>
         </div>
         <div class="panel">
-                <div><label>Your name:</label><span id="sname" runat="server" /></div>
-                <div><label>Your age:</label><span id="sage" runat="server" /></div>
-                <div><label>Your cell no:</label><span id="scell" runat="server" /></div>
-                <div><label>Your zip:</label><span id="szip" runat="server" /></div>
+            <asp:Repeater runat="server" ItemType="Binding.Models.Person" 
+                SelectMethod="GetData" ViewStateMode="Disabled">
+                <ItemTemplate>
+                    <div><label>Your name:</label><span><%# Item.Name %></span></div>
+                    <div><label>Your age:</label><span><%# Item.Age %></span></div>
+                    <div><label>Your cell no:</label><span><%# Item.Cell %></span></div>
+                    <div><label>Your zip:</label><span><%# Item.Zip %></span></div>
+                </ItemTemplate>
+            </asp:Repeater>
+               
         </div>
     </form>
 </body>

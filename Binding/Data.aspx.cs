@@ -5,37 +5,41 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.ModelBinding;
 
 namespace Binding
 {
     public partial class Data : System.Web.UI.Page
     {
-        private int maxValue;
-        private string operation;
+        //private int maxValue;
+        //private string operation;
 
-        protected void Page_LoadComplete(object sender, EventArgs e)
-        {
-            if (IsPostBack)
-            {
-                maxValue = int.Parse(max.Value);
-                OperationSelector selector =
-                    FindControl("opSelector") as OperationSelector;
-                if (selector != null)
-                {
-                    operation = selector.SelectedOperator;
-                }
-            }
-        }
+        //protected void Page_LoadComplete(object sender, EventArgs e)
+        //{
+        //    if (IsPostBack)
+        //    {
+        //        maxValue = int.Parse(max.Value);
+        //        OperationSelector selector =
+        //            FindControl("opSelector") as OperationSelector;
+        //        if (selector != null)
+        //        {
+        //            operation = selector.SelectedOperator;
+        //        }
+        //    }
+        //}
 
-        public IEnumerable<string> GetData()
+        public IEnumerable<string> GetData([Form] int? max,
+            [Control("opSelector", "selectedOperator")] string operation)
         {
             if (operation != null)
             {
-                for (int i = 1; i < maxValue; i++)
+                for (int i = 1; i < max; i++)
                 {
                     yield return string.Format("{0} {1} {2} = {3}",
-                        maxValue, operation == "Add" ? "+" : "-",
-                        i, operation == "Add" ? (maxValue + i) : (maxValue - 1));
+                        max, 
+                        operation == "Add" ? "+" : "-",
+                        i, 
+                        operation == "Add" ? (max + i) : (max- 1));
                 }
             }
         }

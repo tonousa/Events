@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Binding.Models
 {
-    public class Person
+    public class Person : IValidatableObject
     {
         [Required(ErrorMessage = "Enter name")]
         [StringLength(20, MinimumLength =3, ErrorMessage ="3-20 chars")]
@@ -21,5 +21,17 @@ namespace Binding.Models
 
         [CustomValidation(typeof(Binding.CustomChecks), "CheckZip")]
         public string Zip { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext
+            validationContext)
+        {
+            List<ValidationResult> errors = new List<ValidationResult>();
+            if (Name == "Bob" && Age < 20)
+            {
+                errors.Add(
+                    new ValidationResult("Bob under 20, not allowed"));
+            }
+            return errors;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Binding.Default" %>
+<%@ Register TagPrefix="CC" Assembly="Binding" Namespace="Binding.Controls" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +10,7 @@
         label {display:inline-block; width:100px; text-align:right; margin: 5px;}
         div.panel {float:left; margin-left:10px;}
         div.panel label {text-align:right;}
-        div.error {color:red;}
+        div.error, span.error  {color:red;}
     </style>
 </head>
 <body>
@@ -32,11 +33,23 @@
              HeaderText="Problems:" />
 
         <div class="panel">
-                <div><label>Your name:</label><input id="name" runat="server" /></div>
-                <div><label>Your age:</label><input id="age" runat="server" /></div>
-                <div><label>Your cell no:</label><input id="cell" runat="server" /></div>
-                <div><label>Your zip:</label><input id="zip" runat="server" /></div>
-                <button type="submit">Submit</button>
+            <div>
+                <label>Your name:</label><input id="name" runat="server" />
+                <CC:FieldValidator runat="server" PropertyName="name" CssClass="error" />
+            </div>
+            <div>
+                <label>Your age:</label><input id="age" runat="server" />
+                <CC:FieldValidator runat="server" PropertyName="age" CssClass="error" />
+            </div>
+            <div>
+                <label>Your cell no:</label><input id="cell" runat="server" />
+                <CC:FieldValidator runat="server" PropertyName="cell" CssClass="error" />
+            </div>
+            <div>
+                <label>Your zip:</label><input id="zip" runat="server" />
+                <CC:FieldValidator runat="server" PropertyName="zip" CssClass="error" />
+            </div>
+            <button type="submit">Submit</button>
         </div>
         <div class="panel">
             <asp:Repeater runat="server" ItemType="Binding.Models.Person" 

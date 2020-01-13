@@ -35,14 +35,18 @@
 
         <div>
             Filter:
-            <select name="filterSelect">
+            <%--<select name="filterSelect">
                 <asp:Repeater runat="server" ItemType="System.String" 
                     SelectMethod="GetCategories">
                     <ItemTemplate>
                         <option><%# Item %></option>
                     </ItemTemplate>
                 </asp:Repeater>
-            </select>
+            </select>--%>
+
+            <asp:DropDownList runat="server" ItemType="System.String" 
+                SelectMethod="Getcategories" ID="ddList" />
+
             <button type="submit">Submit</button>
         </div>
     </form>

@@ -8,9 +8,9 @@ using System.Web.UI.WebControls;
 
 namespace Data.Controls
 {
-    public class DatatSelect : DataBoundControl
+    public class DatatSelect : DataBoundControl, INamingContainer
     {
-        private string[] dataArray;
+        private object[] dataArray;
 
         public DatatSelect()
         {
@@ -33,10 +33,13 @@ namespace Data.Controls
             }
         }
 
+        [TemplateContainer(typeof(ElementItem))]
+        public ITemplate ItemTemplate { get; set; }
+
         protected override void PerformDataBinding(IEnumerable data)
         {
             //dataArray = data.Cast<string>().ToArray();
-            ViewState["data"] = dataArray = data.Cast<string>().ToArray();
+            ViewState["data"] = dataArray = data.Cast<object>().ToArray();
         }
 
         protected override void RenderContents(HtmlTextWriter writer)
@@ -45,14 +48,19 @@ namespace Data.Controls
             writer.RenderBeginTag(HtmlTextWriterTag.Select);
             for (int i = 0; i < dataArray.Length; i++)
             {
-                writer.AddAttribute(HtmlTextWriterAttribute.Value, dataArray[i]);
-                if (i == 0 && Value == null || dataArray[i] == Value)
-                {
-                    writer.AddAttribute(HtmlTextWriterAttribute.Selected, "selected");
-                }
-                writer.RenderBeginTag(HtmlTextWriterTag.Option);
-                writer.Write(dataArray[i]);
-                writer.RenderEndTag();
+                ElementItem elem = new ElementItem(i, dataArray[i]);
+                ItemTemplate.InstantiateIn(elem);
+                elem.DataBind();
+                elem.RenderControl(writer);
+
+                //writer.AddAttribute(HtmlTextWriterAttribute.Value, dataArray[i]);
+                //if (i == 0 && Value == null || dataArray[i] == Value)
+                //{
+                //    writer.AddAttribute(HtmlTextWriterAttribute.Selected, "selected");
+                //}
+                //writer.RenderBeginTag(HtmlTextWriterTag.Option);
+                //writer.Write(dataArray[i]);
+                //writer.RenderEndTag();
             }
             writer.RenderEndTag();
         }
@@ -60,6 +68,22 @@ namespace Data.Controls
         private string GetId(string name)
         {
             return string.Format("{0}{1}{2}", ClientID, ClientIDSeparator, name);
+        }
+    }
+
+    public class ElementItem : Control, IDataItemContainer
+    {
+        public ElementItem(int index, object dataItem)
+        {
+            DataItemIndex = index;
+            DataItem = dataItem;
+        }
+        public object DataItem { get; set; }
+        public int DataItemIndex { get; set; }
+        public int DisplayIndex {
+            get {
+                return DataItemIndex;
+            }
         }
     }
 }

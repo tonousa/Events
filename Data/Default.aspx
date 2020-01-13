@@ -49,7 +49,12 @@
             <%--<asp:DropDownList runat="server" ItemType="System.String" 
                 SelectMethod="Getcategories" ID="ddList" />--%>
 
-            <CC:DatatSelect id="dSelect" runat="server" SelectMethod="GetCategories"></CC:DatatSelect>
+            <CC:DatatSelect id="dSelect" runat="server" SelectMethod="GetCategories"
+                 ItemType="Data.Models.Product">
+                <ItemTemplate>
+                    <option><%# Item.Category %></option>
+                </ItemTemplate>
+            </CC:DatatSelect>
 
             <button type="submit">Submit</button>
         </div>

@@ -25,10 +25,12 @@ namespace Data
                 : productData.Where(p => p.Category == filterSelect);
         }
 
-        public IEnumerable<string> GetCategories()
+        public IEnumerable<Product> GetCategories()
         {
-            return new string[] { "All" }.Concat(new Repository().Products
-                .Select(p => p.Category).Distinct().OrderBy(c => c));
+            return new Product[] { new Product {Category = "All" }}
+            .Concat((new Repository().Products
+            .GroupBy(p => p.Category).Select(g => g.First())
+            .OrderBy(c => c.Category)));
         }
     }
 }

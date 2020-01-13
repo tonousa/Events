@@ -20,7 +20,21 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <table>
+            <CC:DataTable ItemType="Data.Models.Product" SelectMethod="GetProductData"
+                 runat="server">
+                <HeaderTemplate>
+                    <tr><th>Name</th><th>Category</th><th>Price</th></tr>
+                </HeaderTemplate>
+                <RowTemplate>
+                    <tr>
+                        <td><%# Item.Name %></td>
+                        <td><%# Item.Category %></td>
+                        <td><%# Item.Price.ToString("F2") %></td>
+                    </tr>
+                </RowTemplate>
+            </CC:DataTable>
+
+            <%--<table>
                 <tr><th>Name</th><th>Category</th><th>Price</th></tr>
                 <asp:Repeater runat="server" ItemType="Data.Models.Product" 
                     SelectMethod="GetProductData">
@@ -32,7 +46,7 @@
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
-            </table>
+            </table>--%>
         </div>
 
         <div>

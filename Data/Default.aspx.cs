@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.ModelBinding;
 
 namespace Data
 {
@@ -16,15 +17,17 @@ namespace Data
 
         }
 
-        public IEnumerable<Product> GetProductData()
+        public IEnumerable<Product> GetProductData([Form] string filterSelect)
         {
-            return new Repository().Products;
+            var productData = new Repository().Products;
+            return (filterSelect ?? "All") == "All" ? productData
+                : productData.Where(p => p.Category == filterSelect);
         }
 
         public IEnumerable<string> GetCategories()
         {
-            return new Repository().Products
-                .Select(p => p.Category).Distinct().OrderBy(c => c);
+            return new string[] { "All" }.Concat(new Repository().Products
+                .Select(p => p.Category).Distinct().OrderBy(c => c));
         }
     }
 }

@@ -14,9 +14,14 @@ namespace Data.Controls
 
         public DatatSelect()
         {
-            Init += (src, args) =>
+            Load += (src, args) =>
             {
-                ViewStateMode = System.Web.UI.ViewStateMode.Disabled;
+                //ViewStateMode = System.Web.UI.ViewStateMode.Disabled;
+                dataArray = ViewState["data"] as string[];
+                if (dataArray == null)
+                {
+                    DataBind();
+                }
             };
         }
 
@@ -30,7 +35,8 @@ namespace Data.Controls
 
         protected override void PerformDataBinding(IEnumerable data)
         {
-            dataArray = data.Cast<string>().ToArray();
+            //dataArray = data.Cast<string>().ToArray();
+            ViewState["data"] = dataArray = data.Cast<string>().ToArray();
         }
 
         protected override void RenderContents(HtmlTextWriter writer)

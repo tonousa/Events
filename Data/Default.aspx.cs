@@ -18,7 +18,7 @@ namespace Data
         }
 
         public IEnumerable<Product> GetProductData(
-            [Control("ddList", "SelectedValue")] string filterSelect)
+            [Control("dSelect", "Value")] string filterSelect)
         {
             var productData = new Repository().Products;
             return (filterSelect ?? "All") == "All" ? productData

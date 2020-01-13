@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Data.Default" %>
 
+<%@ Register TagPrefix="CC" Assembly="Data" Namespace="Data.Controls" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -44,8 +46,10 @@
                 </asp:Repeater>
             </select>--%>
 
-            <asp:DropDownList runat="server" ItemType="System.String" 
-                SelectMethod="Getcategories" ID="ddList" />
+            <%--<asp:DropDownList runat="server" ItemType="System.String" 
+                SelectMethod="Getcategories" ID="ddList" />--%>
+
+            <CC:DatatSelect id="dSelect" runat="server" SelectMethod="GetCategories"></CC:DatatSelect>
 
             <button type="submit">Submit</button>
         </div>

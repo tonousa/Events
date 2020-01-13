@@ -52,7 +52,9 @@
             <CC:DatatSelect id="dSelect" runat="server" SelectMethod="GetCategories"
                  ItemType="Data.Models.Product">
                 <ItemTemplate>
-                    <option><%# Item.Category %></option>
+                    <option <%# Container.GenerateSelect(Item.Category) %>>
+                        <%# Item.Category %>
+                    </option>
                 </ItemTemplate>
             </CC:DatatSelect>
 

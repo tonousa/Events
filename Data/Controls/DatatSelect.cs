@@ -49,6 +49,7 @@ namespace Data.Controls
             for (int i = 0; i < dataArray.Length; i++)
             {
                 ElementItem elem = new ElementItem(i, dataArray[i]);
+                elem.SelectedValue = Value;
                 ItemTemplate.InstantiateIn(elem);
                 elem.DataBind();
                 elem.RenderControl(writer);
@@ -84,6 +85,12 @@ namespace Data.Controls
             get {
                 return DataItemIndex;
             }
+        }
+
+        public string SelectedValue { get; set; }
+        public string GenerateSelect(string category)
+        {
+            return category == SelectedValue ? "selected" : null;
         }
     }
 }

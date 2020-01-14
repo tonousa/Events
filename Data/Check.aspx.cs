@@ -10,9 +10,9 @@ namespace Data
 {
     public partial class Check : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Init(object src, EventArgs args)
         {
-            if (IsPostBack)
+            cbl.SelectedIndexChanged += (s, a) =>
             {
                 List<string> selected = new List<string>();
                 foreach (ListItem item in cbl.Items)
@@ -22,9 +22,25 @@ namespace Data
                         selected.Add(item.Value);
                     }
                 }
-                selection.InnerText = string.Join(", ", selected.ToArray());
-            }
+                selection.InnerText = String.Join(", ", selected.ToArray());
+            };
         }
+
+        //protected void Page_Load(object sender, EventArgs e)
+        //{
+        //    if (IsPostBack)
+        //    {
+        //        List<string> selected = new List<string>();
+        //        foreach (ListItem item in cbl.Items)
+        //        {
+        //            if (item.Selected)
+        //            {
+        //                selected.Add(item.Value);
+        //            }
+        //        }
+        //        selection.InnerText = string.Join(", ", selected.ToArray());
+        //    }
+        //}
 
         public IEnumerable<string> GetProducts()
         {

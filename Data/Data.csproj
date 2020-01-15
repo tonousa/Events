@@ -91,6 +91,7 @@
     <Content Include="Check.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Drop.aspx" />
+    <Content Include="FormView.aspx" />
     <Content Include="Global.asax" />
     <Content Include="List.aspx" />
     <Content Include="ListSelectDemo.aspx" />
@@ -147,6 +148,13 @@
     </Compile>
     <Compile Include="Drop.aspx.designer.cs">
       <DependentUpon>Drop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormView.aspx.cs">
+      <DependentUpon>FormView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormView.aspx.designer.cs">
+      <DependentUpon>FormView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

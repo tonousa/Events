@@ -91,6 +91,7 @@
     <Content Include="Check.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Drop.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="List.aspx" />
     <Content Include="ListSelectDemo.aspx" />
     <Content Include="packages.config" />
@@ -115,6 +116,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Bullet.aspx.cs">
       <DependentUpon>Bullet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -145,6 +147,9 @@
     </Compile>
     <Compile Include="Drop.aspx.designer.cs">
       <DependentUpon>Drop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>

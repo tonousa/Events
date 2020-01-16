@@ -95,6 +95,7 @@
     <Content Include="Global.asax" />
     <Content Include="List.aspx" />
     <Content Include="ListSelectDemo.aspx" />
+    <Content Include="ListV.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Radio.aspx" />
@@ -172,6 +173,13 @@
     </Compile>
     <Compile Include="ListSelectDemo.aspx.designer.cs">
       <DependentUpon>ListSelectDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListV.aspx.cs">
+      <DependentUpon>ListV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListV.aspx.designer.cs">
+      <DependentUpon>ListV.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Repository\Repository.cs" />

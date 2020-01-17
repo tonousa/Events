@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MultiViewDemo.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="LiteralDemo.aspx.designer.cs">
       <DependentUpon>LiteralDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MultiViewDemo.aspx.cs">
+      <DependentUpon>MultiViewDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MultiViewDemo.aspx.designer.cs">
+      <DependentUpon>MultiViewDemo.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlaceHolderDemo.aspx.cs">
       <DependentUpon>PlaceHolderDemo.aspx</DependentUpon>

@@ -5,6 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style>
+        div { margin-bottom: 10px;}
+        table, th, td {
+            border: thin solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">

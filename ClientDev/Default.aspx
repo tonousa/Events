@@ -5,12 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="MainStyles.css" rel="stylesheet" />
-    <link href="ErrorStyles.css" rel="stylesheet" />
+    <%--<link href="MainStyles.css" rel="stylesheet" />
+    <link href="ErrorStyles.css" rel="stylesheet" />--%>
     <%--<script src="Scripts/jquery-3.4.1.js"></script>
     <script src="Scripts/jquery-ui-1.12.1.js"></script>--%>
-    <link href="Content/themes/base/jquery-ui.css" rel="stylesheet" />
-    <%: System.Web.Optimization.Styles.Render("~/bundle/basicCSS", "~/bundle/jqueryUICSS") %>
+    <%--<link href="Content/themes/base/jquery-ui.css" rel="stylesheet" />--%>
+    <%: System.Web.Optimization.Styles.Render("~/bundle/basicCSS", 
+    "~/Content/themes/base/jqueryUICSS") %>
     <%: System.Web.Optimization.Scripts.Render("~/bundle/jquery", "~/bundle/jqueryui") %>
     <script>
         $(document).ready(function () {

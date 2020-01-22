@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClientDev.Models;
+using ClientDev.Models.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,30 +12,40 @@ namespace ClientDev
     public class ProductController : ApiController
     {
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IEnumerable<Product> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new Repository().Products;
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public Product Get(int id)
         {
-            return "value";
+            return new Repository().Products
+                .Where(p => p.ProductID == id).FirstOrDefault();
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public void Post([FromBody] Product value)
         {
+            new Repository().SaveProduct(value);
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] Product value)
         {
+            new Repository().SaveProduct(value);
         }
 
         // DELETE api/<controller>/5
         public void Delete(int id)
         {
+            Repository repo = new Repository();
+            Product product = repo.Products
+                .Where(p => p.ProductID == id).FirstOrDefault();
+            if (product != null)
+            {
+                repo.DeleteProduct(product);
+            }
         }
     }
 }

@@ -26,7 +26,7 @@
             $("button").click(function (e) {
                 var action = $(e.target).attr("data-action");
                 $.ajax({
-                    url: action = "all" ? "/api/product" : "/api/product/1",
+                    url: action == "all" ? "/api/product" : "/api/product/1",
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -42,7 +42,7 @@
                         }
                     }
                 });
-                e.preventDefault();
+                e.preventDefault()
             });
         });
     </script>

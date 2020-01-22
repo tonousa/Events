@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Optimization;
+using System.Web.Routing;
 
 namespace ClientDev
 {
@@ -14,6 +15,7 @@ namespace ClientDev
         protected void Application_Start(object sender, EventArgs e)
         {
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
         protected void Session_Start(object sender, EventArgs e)

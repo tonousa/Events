@@ -16,7 +16,7 @@
             } else {
                 var message = "";
                 for (var prop in dataObject ) {
-                    message += prop + ": " + dataObject[prop] + "/n";
+                    message += prop + ": " + dataObject[prop] + "\n";
                 }
                 return message;
             }

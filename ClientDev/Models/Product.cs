@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace ClientDev.Models
 {
     [Serializable]
+    [JsonObject]
     public class Product
     {
         public int ProductID { get; set; }

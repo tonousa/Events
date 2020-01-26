@@ -104,9 +104,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data.aspx" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="ProductTest.aspx" />
+    <Content Include="Scripts\Data.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="WebUserControl1.ascx" />
@@ -177,6 +179,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CDNScriptBundle.cs" />
+    <Compile Include="Data.aspx.cs">
+      <DependentUpon>Data.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Data.aspx.designer.cs">
+      <DependentUpon>Data.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

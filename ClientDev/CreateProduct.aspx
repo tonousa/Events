@@ -9,9 +9,10 @@
         th {text-align:left;}
         td[colspan="2"] {text-align: center; padding: 10px 0;}
         .error {color:red;}
+        .input-validation-error {border: medium solid red;}
     </style>
     <%: System.Web.Optimization.Scripts.Render("~/bundle/validation") %>
-    <script>
+    <%--<script>
         $(document).ready(function () {
             $("button").click(function (e) {
                 var inputElem = $("#Name")[0];
@@ -25,39 +26,48 @@
                 }
             });
         });
-    </script>
+    </script>--%>
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ValidationSummary runat="server" CssClass="error" />
+        <div id="errorSummary" data-valmsg-summary="true" class="error">
+            <ul><li style="display:none"></li></ul>
+            <asp:ValidationSummary runat="server" CssClass="error" />
+        </div>
         <table>
             <tr>
                 <td>Name:</td>
-                <td><input id="Name" runat="server" required="required" /></td>
-                <td>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Name" 
+                <td><input id="Name" runat="server" 
+                    data-val="true" data-val-required="Provide a Name"
+                    data-val-length="5-20 chars" 
+                    data-val-length-min="5" data-val-length-max="20"/></td>
+                <%--<td>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Name"
                         ErrorMessage="Name must be provided" Text="*" CssClass="error" />
-                </td>
+                </td>--%>
             </tr>
             <tr>
                 <td>Category:</td>
-                <td><input id="Category" runat="server" required="required" /></td>
-                <td>
+                <td><input id="Category" runat="server" 
+                    data-val="true" data-val-required="Provide Category" /></td>
+                <%--<td>
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Category" 
                         ErrorMessage="provide Category" Text="*" CssClass="error" />
-                </td>
+                </td>--%>
             </tr>
             <tr>
                 <td>Price:</td>
-                <td><input id="Price" runat="server" required="required" 
-                    type="number" min="1" max="100000" /></td>
-                <td>
+                <td><input id="Price" runat="server" 
+                    data-val="true" data-val-required="Provide Price" 
+                    data-val-range="between 1-100,000" 
+                    data-val-range-min="1" data-val-range-max="100000" /></td>
+                <%--<td>
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Price" 
                         ErrorMessage="Enter price" Text="*" CssClass="error" />
                     <asp:RangeValidator runat="server" ControlToValidate="Price" 
                         MinimumValue="1" MaximumValue="100000" 
                         ErrorMessage="price not in range" Text="*" CssClass="error"  />
-                </td>
+                </td>--%>
             </tr>
 
             <tr><td colspan="2"><input type="submit" value="Create" runat="server" /></td></tr>

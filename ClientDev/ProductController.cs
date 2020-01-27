@@ -47,6 +47,21 @@ namespace ClientDev
                 .Select(p => new ProductView(p));
         }
 
+        public IEnumerable<ProductView> Get([System.Web.ModelBinding.Form] 
+            string categoryFilter)
+        {
+            if (categoryFilter == null || categoryFilter == "All")
+            {
+                return Get();
+            }
+            else
+            {
+                return new Repository().Products
+                    .Where(p => p.Category == categoryFilter)
+                    .Select(p => new ProductView(p));
+            }
+        }
+
         // GET api/<controller>/5
         public ProductView Get(int id)
         {

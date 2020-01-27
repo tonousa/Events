@@ -105,7 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data.aspx" />
+    <Content Include="EventValidationDemo.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="ModelBinding.aspx" />
     <Content Include="packages.config" />
     <Content Include="ProductTest.aspx" />
     <Content Include="Scripts\Data.js" />
@@ -193,8 +195,22 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EventValidationDemo.aspx.cs">
+      <DependentUpon>EventValidationDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventValidationDemo.aspx.designer.cs">
+      <DependentUpon>EventValidationDemo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBinding.aspx.cs">
+      <DependentUpon>ModelBinding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModelBinding.aspx.designer.cs">
+      <DependentUpon>ModelBinding.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Repository\Repository.cs" />

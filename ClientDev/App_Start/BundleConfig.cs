@@ -23,6 +23,11 @@ namespace ClientDev
             jqueryui.CdnPath = "http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/jquery-ui.min.js";
             jqueryui.Include("~/Scripts/jquery-ui-{version}.js");
 
+            Bundle validation = new ScriptBundle("~/bundle/validation")
+                .Include("~/Scripts/jquery-{version}.js",
+                    "~/Scripts/jquery.validate.js",
+                    "~/Scripts/jquery.validate.unobtrusive.js");
+
             Bundle basicStyles = new StyleBundle("~/bundle/basicCSS")
                 .Include("~/MainStyles.css", "~/ErrorStyles.css");
 
@@ -36,6 +41,7 @@ namespace ClientDev
 
             bundles.Add(jquery);
             bundles.Add(jqueryui);
+            bundles.Add(validation);
             bundles.Add(basicStyles);
             bundles.Add(jqueryUIStyles);
         }

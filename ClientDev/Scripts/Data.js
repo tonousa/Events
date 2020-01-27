@@ -56,7 +56,7 @@
                 errorRow.find("*").addClass("error");
                 var errData = JSON.parse(jqXHR.responseText);
                 for (var i = 0; i < errData.length; i++) {
-                    errorRow.after("<tr class='errMsg error'><td colspan=3>"
+                    errorRow.after("<tr class='errMsg error'><td></td><td colspan=3>"
                          + errData[i] + "</td></tr>");
                 }
             }

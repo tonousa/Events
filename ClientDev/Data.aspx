@@ -5,6 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style>
+        th {text-align:left; border-bottom: thin solid black;}
+        input[type=text][name=Price] {width: 75px;}
+        input[type=text][name=Category] {width: 100px;}
+        .error {color:red;}
+    </style>
     <%: System.Web.Optimization.Scripts.Render("~/bundle/jquery") %>
     <script src="Scripts/data.js" ></script>
     <script type="text/template" id="rowTemplate">

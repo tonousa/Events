@@ -62,17 +62,34 @@ namespace ClientDev
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody] ProductView value)
+        public HttpResponseMessage Put(int id, [FromBody] ProductView value)
         {
-            Repository repo = new Repository();
-            Product current = repo.Products
-                .Where(p => p.ProductID == id).FirstOrDefault();
-            if (current != null)
+            if (ModelState.IsValid)
             {
-                current.Name = value.Name;
-                current.Price = value.Price;
-                current.Category = value.Category;
+                Repository repo = new Repository();
+                Product current = repo.Products
+                    .Where(p => p.ProductID == id).FirstOrDefault();
+                if (current != null)
+                {
+                    current.Name = value.Name;
+                    current.Price = value.Price;
+                    current.Category = value.Category;
+                }
+                return Request.CreateResponse(HttpStatusCode.OK);
             }
+            else
+            {
+                List<string> errors = new List<string>();
+                foreach (var state in ModelState)
+                {
+                    foreach (var error in state.Value.Errors)
+                    {
+                        errors.Add(error.ErrorMessage);
+                    }
+                }
+                return Request.CreateResponse(HttpStatusCode.BadRequest, errors);
+            }
+            
         }
 
         // DELETE api/<controller>/5

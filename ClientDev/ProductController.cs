@@ -71,9 +71,26 @@ namespace ClientDev
         }
 
         // POST api/<controller>
-        public void Post([FromBody] ProductView value)
+        public HttpResponseMessage Post([FromBody] Product value)
         {
-            new Repository().SaveProduct(value.ToProduct());
+            //new Repository().SaveProduct(value.ToProduct());
+            if (ModelState.IsValid)
+            {
+                new Repository().AddProduct(value);
+                return Request.CreateResponse(HttpStatusCode.OK, new ProductView(value));
+            }
+            else
+            {
+                List<string> errors = new List<string>();
+                foreach (var state in ModelState)
+                {
+                    foreach (var error in state.Value.Errors)
+                    {
+                        errors.Add(error.ErrorMessage);
+                    }
+                }
+                return Request.CreateResponse(HttpStatusCode.BadRequest, errors);
+            }
         }
 
         // PUT api/<controller>/5

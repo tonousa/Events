@@ -4,10 +4,12 @@ using System.Linq;
 using System.Web;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace ClientDev.Models
 {
     [Serializable]
+    [DataContract]
     [JsonObject]
     public class Product
     {
@@ -21,6 +23,7 @@ namespace ClientDev.Models
 
         [Required]
         [Range(1, 100000)]
+        [DataMember(IsRequired =true)]
         public decimal Price { get; set; }
 
         [Required]

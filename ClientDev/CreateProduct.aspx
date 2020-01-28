@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateProduct.aspx.cs" Inherits="ClientDev.CreateProduct" %>
 
+<%@ Register TagPrefix="CC" Assembly="ClientDev" Namespace="ClientDev" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -35,25 +37,17 @@
             <asp:ValidationSummary runat="server" CssClass="error" />
         </div>
         <table>
-            <tr>
+            <%--<tr>
                 <td>Name:</td>
                 <td><input id="Name" runat="server" 
                     data-val="true" data-val-required="Provide a Name"
                     data-val-length="5-20 chars" 
                     data-val-length-min="5" data-val-length-max="20"/></td>
-                <%--<td>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Name"
-                        ErrorMessage="Name must be provided" Text="*" CssClass="error" />
-                </td>--%>
             </tr>
             <tr>
                 <td>Category:</td>
                 <td><input id="Category" runat="server" 
                     data-val="true" data-val-required="Provide Category" /></td>
-                <%--<td>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Category" 
-                        ErrorMessage="provide Category" Text="*" CssClass="error" />
-                </td>--%>
             </tr>
             <tr>
                 <td>Price:</td>
@@ -61,14 +55,23 @@
                     data-val="true" data-val-required="Provide Price" 
                     data-val-range="between 1-100,000" 
                     data-val-range-min="1" data-val-range-max="100000" /></td>
-                <%--<td>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Price" 
-                        ErrorMessage="Enter price" Text="*" CssClass="error" />
-                    <asp:RangeValidator runat="server" ControlToValidate="Price" 
-                        MinimumValue="1" MaximumValue="100000" 
-                        ErrorMessage="price not in range" Text="*" CssClass="error"  />
-                </td>--%>
-            </tr>
+            </tr>--%>
+
+            <CC:ValidationRepeater runat="server"
+                ItemType="ClientDev.ValidationRepeaterDataItem" 
+                ModelType="ClientDev.Models.Product" 
+                Properties="Name, Category, Price" >
+                <PropertyTemplate>
+                    <tr>
+                        <td><%# Item.PropertyName %></td>
+                        <td>
+                            <input id="<%# Item.PropertyName %>" 
+                                name="<%# Item.PropertyName %>" 
+                                <%# Item.ValidationAttributes %> />
+                        </td>
+                    </tr>
+                </PropertyTemplate>
+            </CC:ValidationRepeater>
 
             <tr><td colspan="2"><input type="submit" value="Create" runat="server" /></td></tr>
 

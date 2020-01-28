@@ -92,7 +92,7 @@ namespace ClientDev
                     };
                 PropertyTemplate.InstantiateIn(elem);
                 elem.DataBind();
-
+                elem.RenderControl(writer);
             }
         }
     }

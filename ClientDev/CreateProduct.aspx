@@ -14,6 +14,7 @@
         .input-validation-error {border: medium solid red;}
     </style>
     <%: System.Web.Optimization.Scripts.Render("~/bundle/validation") %>
+    <script src="Scripts/CreateProduct.js"></script>
     <%--<script>
         $(document).ready(function () {
             $("button").click(function (e) {

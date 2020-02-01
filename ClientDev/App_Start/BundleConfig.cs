@@ -28,6 +28,13 @@ namespace ClientDev
                     "~/Scripts/jquery.validate.js",
                     "~/Scripts/jquery.validate.unobtrusive.js");
 
+            Bundle jqmobile = new ScriptBundle("~/bundle/jqmobile")
+                .Include("~/Scripts/jquery-{version}.js",
+                    "~/Scripts/jquery.mobile-{version}");
+
+            Bundle jqmobileCSS = new StyleBundle("~/bundle/jqmobileCSS")
+                .Include("~/Content/jquery.mobile-{version}.css");
+
             Bundle basicStyles = new StyleBundle("~/bundle/basicCSS")
                 .Include("~/MainStyles.css", "~/ErrorStyles.css");
 
@@ -42,6 +49,8 @@ namespace ClientDev
             bundles.Add(jquery);
             bundles.Add(jqueryui);
             bundles.Add(validation);
+            bundles.Add(jqmobile);
+            bundles.Add(jqmobileCSS);
             bundles.Add(basicStyles);
             bundles.Add(jqueryUIStyles);
         }

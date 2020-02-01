@@ -7,14 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace ClientDev
 {
-    public partial class Simple : System.Web.UI.Page
+    public partial class Site : System.Web.UI.MasterPage
     {
-        protected void Page_PreInit(object sender, EventArgs e)
-        {
-            MasterPageFile = Request.Browser.IsMobileDevice ?
-                "Site.Mobile.Master" : "Site.Master";
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
 

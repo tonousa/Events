@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ClientDev.Site" %>
 
+<%@ Register TagPrefix="friendlyUrls" TagName="ViewSwitcher" Src="~/ViewSwitcher.ascx" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,6 +17,9 @@
 <body>
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
     </asp:ContentPlaceHolder>
-    <div>User Site.Master</div>
+    <div>
+        User Site.Master
+        <friendlyUrls:ViewSwitcher runat="server" />
+    </div>
 </body>
 </html>

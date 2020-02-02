@@ -344,6 +344,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Simple.aspx" />
+    <Content Include="Simple.Mobile.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="WebUserControl1.ascx" />
     <Content Include="Site.Master" />
@@ -446,6 +447,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MobileModule.cs" />
     <Compile Include="ModelBinding.aspx.cs">
       <DependentUpon>ModelBinding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -470,6 +472,13 @@
     </Compile>
     <Compile Include="Simple.aspx.designer.cs">
       <DependentUpon>Simple.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Simple.Mobile.aspx.cs">
+      <DependentUpon>Simple.Mobile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Simple.Mobile.aspx.designer.cs">
+      <DependentUpon>Simple.Mobile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

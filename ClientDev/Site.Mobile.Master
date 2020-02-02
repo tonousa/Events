@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Mobile.Master.cs" Inherits="ClientDev.Site_Mobile" %>
 
+<%@ Register TagPrefix="friendlyUrls" TagName="ViewSwitcher" Src="~/ViewSwitcher.ascx" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,7 +22,10 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">  
             </asp:ContentPlaceHolder>
         </div>
-        <div data-role="footer">Uses Site.Mobile.Master</div>
+        <div data-role="footer">
+            Uses Site.Mobile.Master
+            <friendlyUrls:ViewSwitcher runat="server" />
+        </div>
     </div>
 </body>
 </html>

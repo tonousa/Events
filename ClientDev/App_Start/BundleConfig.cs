@@ -28,11 +28,11 @@ namespace ClientDev
                     "~/Scripts/jquery.validate.js",
                     "~/Scripts/jquery.validate.unobtrusive.js");
 
-            Bundle jqmobile = new ScriptBundle("~/bundle/jqmobile")
+            Bundle jqmobile = new ScriptBundle("~/bundle/jquerymobile")
                 .Include("~/Scripts/jquery-{version}.js",
                     "~/Scripts/jquery.mobile-{version}");
 
-            Bundle jqmobileCSS = new StyleBundle("~/bundle/jqmobileCSS")
+            Bundle jqmobileCSS = new StyleBundle("~/bundle/jquerymobileCSS")
                 .Include("~/Content/jquery.mobile-{version}.css");
 
             Bundle basicStyles = new StyleBundle("~/bundle/basicCSS")

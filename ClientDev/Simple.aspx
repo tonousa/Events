@@ -6,7 +6,7 @@
     </div>
     <div> Mobile: <%: Request.Browser.IsMobileDevice %></div>
     <div>
-        <button>Button 1</button>
+        <button class="ui-btn ui-icon-delete ui-btn-icon-left">Button 1</button>
         <button>Button 2</button>
     </div>
 </asp:Content>
